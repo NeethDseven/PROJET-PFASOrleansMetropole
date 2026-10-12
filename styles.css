@@ -215,6 +215,29 @@ table.compact td:not(:first-child), table.compact th:not(:first-child) { text-al
 .leaflet footer { background: var(--water-soft); padding: 18px 32px; text-align: center; font-size: 13px; }
 .leaflet .retain { font-size: 15px; font-weight: 600; color: var(--deep); }
 
+.button.ghost { display: inline-block; background: none; color: var(--water); border: 1px solid var(--water); text-decoration: none; margin-left: 8px; }
+.button.ghost:hover { background: var(--water-soft); }
+.leaflet-qr { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 16px; text-align: left; }
+.leaflet-qr img { width: 104px; height: 104px; border-radius: 8px; background: #fff; }
+.leaflet-qr p { max-width: 30ch; }
+.leaflet-qr b { display: block; font-size: 15px; color: var(--deep); }
+
+/* ---------- Page habitants ---------- */
+.resident-header { background: linear-gradient(135deg, #0f6e84, #17a2b8); color: #fff; padding: 36px 0 32px; }
+.resident-header h1 { color: #fff; }
+.resident-header .kicker { color: #d5f0f5; }
+.resident-header .lead { color: #eaf7f9; }
+.resident main { max-width: 820px; padding-bottom: 48px; }
+.resident main p, .resident .list { font-size: 16px; }
+.resident .card.mini p { font-size: 15px; }
+.resident .infographic { margin-top: 20px; }
+.steps { list-style: none; margin: 0 0 16px; padding: 0; counter-reset: step; }
+.steps li { position: relative; padding: 0 0 18px 46px; counter-increment: step; }
+.steps li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--water); color: #fff; font-weight: 700; display: grid; place-items: center; }
+.steps li:not(:last-child)::after { content: ""; position: absolute; left: 14px; top: 32px; bottom: 2px; width: 2px; background: var(--line); }
+.steps strong { display: block; color: var(--ink); }
+.steps span { color: var(--muted); font-size: 15px; }
+
 .infographic { max-width: 820px; margin: 0 auto 24px; }
 .infographic img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 14px; }
 .infographic figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; text-align: center; }
