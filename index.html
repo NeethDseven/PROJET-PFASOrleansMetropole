@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hautes Bordes · Pilotage PFAS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark"><span></span><span></span><span></span></div>
+          <div><strong>eau<span>·</span>pilot</strong><small>Orléans Métropole</small></div>
+        </div>
+
+        <div class="workspace-label">ESPACE PROJET</div>
+        <div class="project-picker">
+          <div class="project-icon">HB</div>
+          <div><strong>Hautes Bordes</strong><small>Semoy · Captage</small></div>
+          <span class="chevron">⌄</span>
+        </div>
+
+        <nav class="main-nav" aria-label="Navigation principale">
+          <a class="nav-item active" href="#overview"><span class="nav-icon">◉</span>Vue d’ensemble</a>
+          <a class="nav-item" href="#diagnostic"><span class="nav-icon">⌁</span>Qualité de l’eau</a>
+          <a class="nav-item" href="#treatment"><span class="nav-icon">◇</span>Filière de traitement</a>
+          <a class="nav-item" href="#options"><span class="nav-icon">▤</span>Scénarios</a>
+          <a class="nav-item" href="#roadmap"><span class="nav-icon">↗</span>Feuille de route</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="workspace-label">RESSOURCES</div>
+          <a class="nav-item" href="#sources"><span class="nav-icon">▧</span>Documents sources</a>
+          <a class="nav-item" href="#partners"><span class="nav-icon">♧</span>Partenaires</a>
+          <div class="help-card">
+            <div class="help-symbol">?</div>
+            <div><strong>Besoin d’aide ?</strong><small>Consulter le dossier projet</small></div>
+          </div>
+          <div class="user-card"><div class="avatar">OM</div><div><strong>Orléans Métropole</strong><small>Administrateur</small></div><span>•••</span></div>
+        </div>
+      </aside>
+
+      <main class="main-content" id="overview">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>Projets</span><b>/</b><span>Hautes Bordes</span><b>/</b><strong>Vue d’ensemble</strong></div>
+          <div class="top-actions"><button class="icon-button" aria-label="Notifications">♢<i></i></button><button class="export-button">↓ <span>Exporter le rapport</span></button></div>
+        </header>
+
+        <section class="page-heading">
+          <div>
+            <div class="eyebrow"><span class="live-dot"></span> SUIVI EN TEMPS DIFFÉRÉ · MIS À JOUR LE 12 OCT. 2026</div>
+            <h1>Captage des Hautes Bordes</h1>
+            <p>Tableau de pilotage pour la remise en service du captage de Semoy.</p>
+          </div>
+          <div class="heading-status"><span class="status-dot"></span><div><strong>Étude en cours</strong><small>Décision conditionnée aux essais pilotes</small></div></div>
+        </section>
+
+        <section class="hero-grid">
+          <article class="card risk-card" id="diagnostic">
+            <div class="card-head"><div><span class="section-kicker">INDICATEUR SANITAIRE</span><h2>Niveau de PFAS</h2></div><button class="more-button">•••</button></div>
+            <div class="risk-content">
+              <div class="metric-large">327,3 <span>ng/L</span></div>
+              <div class="risk-badge">▲ +227,3% <small>vs limite réglementaire</small></div>
+            </div>
+            <div class="gauge-wrap">
+              <div class="gauge-labels"><span>0</span><span>100 ng/L · limite</span><span>350</span></div>
+              <div class="gauge"><div class="gauge-fill"></div><div class="gauge-marker" title="Valeur maximale historique"></div></div>
+            </div>
+            <div class="card-foot"><span><i class="legend-dot alert"></i>Valeur maximale historique</span><span>Dernier relevé : 29 jan. 2024</span></div>
+          </article>
+
+          <article class="card target-card">
+            <div class="card-head"><div><span class="section-kicker">OBJECTIF DE CONCEPTION</span><h2>Qualité cible en sortie</h2></div><span class="target-icon">✓</span></div>
+            <div class="target-value">50 <span>ng/L</span></div>
+            <p class="muted">Objectif opérationnel proposé pour conserver une marge de sécurité.</p>
+            <div class="target-progress"><div><span>Réduction à atteindre</span><strong>84,7 %</strong></div><div class="progress-track"><span></span></div></div>
+            <div class="target-note"><span>✓</span> La limite réglementaire de 100 ng/L reste la référence sanitaire.</div>
+          </article>
+        </section>
+
+        <section class="section-block">
+          <div class="section-title"><div><span class="section-kicker">ANALYSE HISTORIQUE</span><h2>Évolution de la contamination</h2></div><div class="chart-legend"><span><i class="legend-dot series"></i>Somme des 20 PFAS</span><span><i class="legend-line"></i>Limite réglementaire</span><select id="periodSelect"><option>Nov. 2023 — Jan. 2024</option><option>Historique complet</option></select></div></div>
+          <article class="card chart-card">
+            <div class="chart-area">
+              <div class="y-axis"><span>350</span><span>250</span><span>150</span><span>50</span><span>0</span></div>
+              <div class="chart-plot">
+                <div class="grid-line" style="top:0%"></div><div class="grid-line" style="top:28%"></div><div class="grid-line" style="top:56%"></div><div class="grid-line" style="top:84%"></div><div class="limit-line"><span>100 ng/L</span></div>
+                <svg viewBox="0 0 800 220" preserveAspectRatio="none" role="img" aria-label="Évolution des concentrations PFAS">
+                  <defs><linearGradient id="areaGradient" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#ff856f" stop-opacity=".28"/><stop offset="100%" stop-color="#ff856f" stop-opacity=".01"/></linearGradient></defs>
+                  <path class="chart-area-fill" d="M0,98 L265,119 L530,28 L800,14 L800,220 L0,220 Z"></path>
+                  <path class="chart-line" d="M0,98 L265,119 L530,28 L800,14"></path>
+                  <circle cx="0" cy="98" r="5"></circle><circle cx="265" cy="119" r="5"></circle><circle cx="530" cy="28" r="5"></circle><circle cx="800" cy="14" r="5"></circle>
+                </svg>
+                <div class="chart-tooltip"><strong>327,3 ng/L</strong><small>29 janvier 2024</small></div>
+                <div class="x-axis"><span>07 nov. 2023</span><span>05 déc. 2023</span><span>11 jan. 2024</span><span>29 jan. 2024</span></div>
+              </div>
+            </div>
+            <div class="chart-insight"><span class="insight-icon">↗</span><div><strong>Point d’attention</strong><p>Les 4 mesures historiques dépassent la limite de qualité. Une nouvelle campagne d’analyses est nécessaire avant tout dimensionnement.</p></div></div>
+          </article>
+        </section>
+
+        <section class="section-block" id="treatment">
+          <div class="section-title"><div><span class="section-kicker">FILIÈRE PROPOSÉE</span><h2>Du captage à la distribution</h2></div><button class="text-button">Voir le détail <span>→</span></button></div>
+          <div class="pipeline">
+            <div class="pipeline-step"><div class="step-number">01</div><div class="step-icon blue">♒</div><strong>Captage & contrôle</strong><small>Analyse de l’eau brute</small></div><div class="pipeline-arrow">→</div>
+            <div class="pipeline-step"><div class="step-number">02</div><div class="step-icon yellow">≋</div><strong>Prétraitement</strong><small>Fer & manganèse si nécessaire</small></div><div class="pipeline-arrow">→</div>
+            <div class="pipeline-step highlight"><div class="step-number">03</div><div class="step-icon coral">◉</div><strong>Adsorption PFAS</strong><small>Résines ou charbon actif</small><span class="recommended-tag">À tester en priorité</span></div><div class="pipeline-arrow">→</div>
+            <div class="pipeline-step"><div class="step-number">04</div><div class="step-icon purple">⌁</div><strong>Contrôle qualité</strong><small>Suivi des colonnes</small></div><div class="pipeline-arrow">→</div>
+            <div class="pipeline-step"><div class="step-number">05</div><div class="step-icon green">✓</div><strong>Distribution</strong><small>Désinfection & réseau</small></div>
+          </div>
+        </section>
+
+        <section class="bottom-grid" id="options">
+          <article class="card recommendation-card">
+            <div class="card-head"><div><span class="section-kicker">DÉCISION RECOMMANDÉE</span><h2>Tester avant d’investir</h2></div><span class="recommendation-icon">✦</span></div>
+            <p>Conserver l’interconnexion comme référence et comparer les deux médias sur la même eau de Semoy.</p>
+            <div class="recommendation-list"><div><span>01</span><strong>Campagne de caractérisation</strong><small>PFAS, fer, manganèse et débit exploitable</small></div><div><span>02</span><strong>Pilote comparatif</strong><small>Charbon actif granulaire vs résines PFAS</small></div><div><span>03</span><strong>Arbitrage territorial</strong><small>Coût complet et valeur de résilience</small></div></div>
+            <button class="primary-button">Accéder à la feuille de route <span>→</span></button>
+          </article>
+          <article class="card options-card">
+            <div class="card-head"><div><span class="section-kicker">MATRICE INITIALE</span><h2>Scénarios comparés</h2></div><button class="more-button">•••</button></div>
+            <div class="option-row"><div class="option-name"><span class="option-rank">01</span><div><strong>Résines PFAS</strong><small>Option prioritaire à tester</small></div></div><div class="score"><strong>74</strong><span>/100</span><div class="mini-bar"><i style="width:74%"></i></div></div></div>
+            <div class="option-row"><div class="option-name"><span class="option-rank">02</span><div><strong>Charbon actif (CAG)</strong><small>Alternative de référence</small></div></div><div class="score"><strong>71</strong><span>/100</span><div class="mini-bar orange"><i style="width:71%"></i></div></div></div>
+            <div class="option-row"><div class="option-name"><span class="option-rank">03</span><div><strong>Osmose inverse</strong><small>Recours ciblé</small></div></div><div class="score"><strong>66</strong><span>/100</span><div class="mini-bar purple"><i style="width:66%"></i></div></div></div>
+            <div class="option-row"><div class="option-name"><span class="option-rank">04</span><div><strong>CAG + résines</strong><small>Seulement si gain démontré</small></div></div><div class="score"><strong>60</strong><span>/100</span><div class="mini-bar gray"><i style="width:60%"></i></div></div></div>
+          </article>
+        </section>
+
+        <section class="roadmap-section" id="roadmap"><div class="section-title"><div><span class="section-kicker">PROCHAINES ÉTAPES</span><h2>Feuille de route du projet</h2></div><span class="roadmap-progress">1 étape sur 5 complétée</span></div><div class="roadmap"><div class="roadmap-line"></div><div class="roadmap-item complete"><div class="roadmap-dot">✓</div><div><strong>Collecte des données</strong><small>Volumes, qualité, ouvrages existants</small></div><span>Terminé</span></div><div class="roadmap-item current"><div class="roadmap-dot">02</div><div><strong>Essais pilotes CAG / résines</strong><small>Courbes de percée et durée de vie</small></div><span>En cours</span></div><div class="roadmap-item"><div class="roadmap-dot">03</div><div><strong>Études économiques</strong><small>CAPEX, OPEX et coût actualisé sur 20 ans</small></div><span>À venir</span></div><div class="roadmap-item"><div class="roadmap-dot">04</div><div><strong>Décision de la Métropole</strong><small>Arbitrage interconnexion ou réhabilitation</small></div><span>À venir</span></div><div class="roadmap-item"><div class="roadmap-dot">05</div><div><strong>Mise en œuvre & suivi</strong><small>Indicateurs, alarmes et traçabilité</small></div><span>À venir</span></div></div></section>
+        <footer><span>eau·pilot · Prototype de démonstration</span><span>Données historiques · À confirmer par nouvelle campagne d’analyses</span></footer>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
