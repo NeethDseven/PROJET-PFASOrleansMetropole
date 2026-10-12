@@ -229,12 +229,6 @@ const MATRIX = {
 
 const SOURCES = [
   {
-    group: 'Dossier de base',
-    items: [
-      ['D1', 'Orléans Métropole et partenaires, présentation complète fournie pour le hackathon, 73 pages', ''],
-    ],
-  },
-  {
     group: 'Orléans Métropole',
     items: [
       ['S1', 'Qualité de l’eau potable altérée à Semoy : Orléans Métropole répond à l’urgence (16/04/2024)', 'https://www.orleans-metropole.fr/actualites/detail/qualite-de-leau-potable-alteree-a-semoy-orleans-metropole-repond-a-lurgence'],
