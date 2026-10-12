@@ -3,281 +3,431 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hautes Bordes · Pilotage PFAS</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
+    <title>Projet PFAS · Orléans Métropole · Hautes Bordes</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="app-shell">
-      <aside class="sidebar">
-        <div class="brand">
-          <div class="brand-mark"><span></span><span></span><span></span></div>
-          <div><strong>eau<span>·</span>pilot</strong><small>Orléans Métropole</small></div>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="brand" href="#synthese">
+          <span class="brand-drop" aria-hidden="true"></span>
+          <span><strong>Projet PFAS</strong><small>Orléans Métropole · captage des Hautes Bordes, Semoy</small></span>
+        </a>
+        <span class="header-date">Dossier consolidé · 12 octobre 2026</span>
+      </div>
+      <nav class="wrap tabs" aria-label="Livrables">
+        <a href="#synthese">Synthèse</a>
+        <a href="#traitement"><b>1</b> Traitement</a>
+        <a href="#benchmark"><b>2</b> Benchmark</a>
+        <a href="#economie"><b>3</b> Modèle économique</a>
+        <a href="#plaquette"><b>4</b> Plaquette</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <main class="wrap">
+      <!-- ================= SYNTHÈSE ================= -->
+      <section class="view" id="synthese">
+        <div class="hero">
+          <p class="kicker">Étude de cas · 4 livrables</p>
+          <h1>Faut-il remettre en service le captage des Hautes Bordes&nbsp;?</h1>
+          <p class="lead">Le captage de Semoy est arrêté depuis le 26 décembre 2023 après des dépassements de la limite de qualité pour les PFAS. La commune est alimentée par interconnexion depuis les captages d’Orléans. Ce dossier définit le traitement qui permettrait une remise en service, le compare à l’existant et pose le modèle économique de la décision.</p>
         </div>
 
-        <div class="workspace-label">ESPACE PROJET</div>
-        <div class="project-picker">
-          <div class="project-icon">HB</div>
-          <div><strong>Hautes Bordes</strong><small>Semoy · Captage</small></div>
-          <span class="chevron">⌄</span>
+        <div class="grid g4">
+          <div class="stat alert"><strong>327,3 <span>ng/L</span></strong><small>Maximum historique de la somme des 20 PFAS (29 janvier 2024), soit 3,27 fois la limite</small></div>
+          <div class="stat"><strong>100 <span>ng/L</span></strong><small>Limite de qualité réglementaire pour la somme des 20 PFAS</small></div>
+          <div class="stat"><strong>50 <span>ng/L</span></strong><small>Cible de conception proposée pour l’étude, qui n’est pas une norme</small></div>
+          <div class="stat"><strong>84,7 <span>%</span></strong><small>Réduction à atteindre pour la cible (69,4 % pour la limite)</small></div>
         </div>
 
-        <nav class="main-nav" aria-label="Navigation principale">
-          <a class="nav-item active" href="#overview"><span class="nav-icon">◉</span>Vue d’ensemble</a>
-          <a class="nav-item" href="#diagnostic"><span class="nav-icon">⌁</span>Qualité de l’eau</a>
-          <a class="nav-item" href="#treatment"><span class="nav-icon">◇</span>Filière de traitement</a>
-          <a class="nav-item" href="#options"><span class="nav-icon">▤</span>Scénarios</a>
-          <a class="nav-item" href="#economics"><span class="nav-icon">€</span>Modèle économique</a>
-          <a class="nav-item" href="#roadmap"><span class="nav-icon">↗</span>Feuille de route</a>
-          <a class="nav-item" href="#plaquette"><span class="nav-icon">♢</span>Eau du robinet</a>
-        </nav>
-
-        <div class="sidebar-bottom">
-          <div class="workspace-label">RESSOURCES</div>
-          <a class="nav-item" href="#sources"><span class="nav-icon">▧</span>Documents sources</a>
-          <a class="nav-item" href="#partners"><span class="nav-icon">♧</span>Partenaires</a>
-          <div class="help-card">
-            <div class="help-symbol">?</div>
-            <div><strong>Besoin d’aide ?</strong><small>Consulter le dossier projet</small></div>
-          </div>
-          <div class="user-card"><div class="avatar">OM</div><div><strong>Orléans Métropole</strong><small>Administrateur</small></div><span>•••</span></div>
+        <div class="decision">
+          <p class="kicker">Décision recommandée</p>
+          <ol class="flow">
+            <li><strong>Caractériser</strong><span>Analyses récentes, débit, ouvrages existants</span></li>
+            <li><strong>Comparer CAG et résines</strong><span>Essais pilotes sur l’eau de Semoy</span></li>
+            <li><strong>Chiffrer</strong><span>Coût actualisé face à l’interconnexion</span></li>
+            <li><strong>Décider</strong><span>Arbitrage de la Métropole</span></li>
+          </ol>
+          <p>L’interconnexion reste la solution en place pendant toute l’étude. La construction n’est pas décidée à ce stade : une réhabilitation ne se justifie que si elle apporte une valeur démontrable en qualité, capacité, sécurité d’approvisionnement ou coût actualisé.</p>
         </div>
-      </aside>
 
-      <main class="main-content" id="overview">
-        <header class="topbar">
-          <div class="breadcrumbs"><span>Projets</span><b>/</b><span>Hautes Bordes</span><b>/</b><strong>Vue d’ensemble</strong></div>
-          <div class="top-actions"><button class="icon-button" aria-label="Notifications">♢<i></i></button><button class="export-button">↓ <span>Exporter le rapport</span></button></div>
-        </header>
+        <h2>Les quatre livrables</h2>
+        <div class="grid g4">
+          <a class="card link-card" href="#traitement"><span class="num">1</span><h3>Définition du traitement</h3><p>Diagnostic, objectifs, filière par adsorption, option membranes et ELIXIR, validation en quatre phases.</p></a>
+          <a class="card link-card" href="#benchmark"><span class="num">2</span><h3>Benchmark</h3><p>Technologies, référence de Ternay, coûts sourcés, matrice pondérée, SWOT, partenaires.</p></a>
+          <a class="card link-card" href="#economie"><span class="num">3</span><h3>Modèle économique</h3><p>Coût actualisé sur 20 ans, chiffrage d’ELIXIR, financement et principe pollueur-payeur.</p></a>
+          <a class="card link-card" href="#plaquette"><span class="num">4</span><h3>Plaquette</h3><p>Promotion de l’eau du robinet auprès des habitants, avec un encadré de transparence sur les PFAS.</p></a>
+        </div>
 
-        <section class="page-heading">
-          <div>
-            <div class="eyebrow"><span class="live-dot"></span> SUIVI EN TEMPS DIFFÉRÉ · MIS À JOUR LE 12 OCT. 2026</div>
-            <h1>Captage des Hautes Bordes</h1>
-            <p>Suivi de la solution actuelle et de l’étude préalable à une éventuelle remise en service.</p>
+        <h2>Ce qui reste à établir</h2>
+        <div class="note">
+          <p>Les quatre mesures de PFAS sont historiques et ne décrivent pas la qualité actuelle de l’eau. Le débit exploitable du captage, le volume à produire, les teneurs en fer et manganèse propres à Semoy, le coût réel de l’interconnexion et les devis des filières ne figurent pas dans les éléments disponibles. Tous les montants de ce site sont des références externes ou des hypothèses de calcul, jamais des devis pour Semoy.</p>
+        </div>
+
+        <h2>Piste d’ouverture : étendre la démarche à Orléans Métropole</h2>
+        <div class="card">
+          <p>Le dossier porte sur un seul captage, mais la Métropole exploite 30 forages, 1 549 km de réseau et a mis en distribution 18,6 millions de m³ en 2025. La méthode appliquée à Semoy peut servir de grille pour les autres ressources : caractériser chaque captage, le comparer à son alternative d’approvisionnement, tester avant d’investir, chiffrer sur une base commune, puis arbitrer.</p>
+          <p>Les résultats d’essais, le dimensionnement et les coûts restent propres à chaque eau, et le volume métropolitain n’est pas un volume à traiter. Cette extension est une proposition de l’équipe : le dossier ne contient aucune donnée PFAS pour les autres captages.</p>
+        </div>
+      </section>
+
+      <!-- ================= LIVRABLE 1 ================= -->
+      <section class="view" id="traitement">
+        <div class="hero">
+          <p class="kicker">Livrable 1</p>
+          <h1>Définition du traitement nécessaire</h1>
+          <p class="lead">Quel traitement mettre en place pour permettre, si cela est pertinent, la remise en service du captage tout en garantissant une eau conforme, sûre et économiquement soutenable&nbsp;?</p>
+        </div>
+
+        <h2>Diagnostic : quatre mesures historiques</h2>
+        <div class="grid g2">
+          <div class="card">
+            <div class="chart" role="img" aria-label="Somme des 20 PFAS : 207,2 ng/L le 7 novembre 2023, 159,6 le 5 décembre 2023, 305,5 le 11 janvier 2024, 327,3 le 29 janvier 2024, pour une limite de 100 ng/L">
+              <div class="chart-line limit"><span>Limite 100 ng/L</span></div>
+              <div class="chart-line target"><span>Cible 50 ng/L</span></div>
+              <div class="bar" style="--v:207.2"><b>207,2</b><small>7 nov. 2023</small></div>
+              <div class="bar" style="--v:159.6"><b>159,6</b><small>5 déc. 2023</small></div>
+              <div class="bar" style="--v:305.5"><b>305,5</b><small>11 janv. 2024</small></div>
+              <div class="bar" style="--v:327.3"><b>327,3</b><small>29 janv. 2024</small></div>
+            </div>
+            <p class="caption">Somme des 20 PFAS, en ng/L.</p>
           </div>
-          <div class="heading-status"><span class="status-dot"></span><div><strong>Interconnexion maintenue</strong><small>Réhabilitation du captage à l’étude</small></div></div>
-        </section>
-
-        <section class="hero-grid">
-          <article class="card risk-card" id="diagnostic">
-            <div class="card-head"><div><span class="section-kicker">INDICATEUR SANITAIRE</span><h2>Niveau de PFAS</h2></div><button class="more-button">•••</button></div>
-            <div class="risk-content">
-              <div class="metric-large">327,3 <span>ng/L</span></div>
-              <div class="risk-badge">▲ +227,3% <small>vs limite réglementaire</small></div>
-            </div>
-            <div class="gauge-wrap">
-              <div class="gauge-labels"><span>0</span><span>100 ng/L · limite</span><span>350</span></div>
-              <div class="gauge"><div class="gauge-fill"></div><div class="gauge-marker" title="Valeur maximale historique"></div></div>
-            </div>
-            <div class="card-foot"><span><i class="legend-dot alert"></i>Valeur maximale historique</span><span>Dernier relevé : 29 jan. 2024</span></div>
-          </article>
-
-          <article class="card target-card">
-            <div class="card-head"><div><span class="section-kicker">OBJECTIF DE CONCEPTION</span><h2>Qualité cible en sortie</h2></div><span class="target-icon">✓</span></div>
-            <div class="target-value">50 <span>ng/L</span></div>
-            <p class="muted">Objectif opérationnel proposé pour conserver une marge de sécurité.</p>
-            <div class="target-progress"><div><span>Réduction à atteindre</span><strong>84,7 %</strong></div><div class="progress-track"><span></span></div></div>
-            <div class="target-note"><span>✓</span> Limite réglementaire : 100 ng/L (réduction ≥ 69,4 %). Les 50 ng/L sont une cible d’étude, pas une norme.</div>
-          </article>
-        </section>
-
-        <section class="section-block">
-          <div class="section-title"><div><span class="section-kicker">ANALYSE HISTORIQUE</span><h2>Évolution de la contamination</h2></div><div class="chart-legend"><span><i class="legend-dot series"></i>Somme des 20 PFAS</span><span><i class="legend-line"></i>Limite réglementaire</span><select id="periodSelect"><option>Nov. 2023 — Jan. 2024</option><option>Historique complet</option></select></div></div>
-          <article class="card chart-card">
-            <div class="chart-area">
-              <div class="y-axis"><span>350</span><span>250</span><span>150</span><span>50</span><span>0</span></div>
-              <div class="chart-plot">
-                <div class="grid-line" style="top:0%"></div><div class="grid-line" style="top:28%"></div><div class="grid-line" style="top:56%"></div><div class="grid-line" style="top:84%"></div><div class="limit-line"><span>100 ng/L</span></div>
-                <svg viewBox="0 0 800 220" preserveAspectRatio="none" role="img" aria-label="Évolution des concentrations PFAS">
-                  <defs><linearGradient id="areaGradient" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#ff856f" stop-opacity=".28"/><stop offset="100%" stop-color="#ff856f" stop-opacity=".01"/></linearGradient></defs>
-                  <path class="chart-area-fill" d="M0,98 L265,119 L530,28 L800,14 L800,220 L0,220 Z"></path>
-                  <path class="chart-line" d="M0,98 L265,119 L530,28 L800,14"></path>
-                  <circle cx="0" cy="98" r="5"></circle><circle cx="265" cy="119" r="5"></circle><circle cx="530" cy="28" r="5"></circle><circle cx="800" cy="14" r="5"></circle>
-                </svg>
-                <div class="chart-tooltip"><strong>327,3 ng/L</strong><small>29 janvier 2024</small></div>
-                <div class="x-axis"><span>07 nov. 2023</span><span>05 déc. 2023</span><span>11 jan. 2024</span><span>29 jan. 2024</span></div>
-              </div>
-            </div>
-            <div class="chart-insight"><span class="insight-icon">↗</span><div><strong>Point d’attention</strong><p>Les 4 mesures historiques dépassent la limite de qualité. Une nouvelle campagne d’analyses est nécessaire avant tout dimensionnement.</p></div></div>
-          </article>
-        </section>
-
-        <section class="section-block" id="treatment">
-          <div class="section-title"><div><span class="section-kicker">FILIÈRE À VALIDER</span><h2>Du captage à la distribution</h2></div><button class="text-button">Voir le détail <span>→</span></button></div>
-          <div class="pipeline">
-            <div class="pipeline-step"><div class="step-number">01</div><div class="step-icon blue">♒</div><strong>Captage & contrôle</strong><small>Analyse de l’eau brute</small></div><div class="pipeline-arrow">→</div>
-            <div class="pipeline-step"><div class="step-number">02</div><div class="step-icon yellow">≋</div><strong>Prétraitement</strong><small>Station fer / manganèse de 2022 à auditer</small></div><div class="pipeline-arrow">→</div>
-            <div class="pipeline-step highlight"><div class="step-number">03</div><div class="step-icon coral">◉</div><strong>Adsorption PFAS</strong><small>Résines ou charbon actif</small><span class="recommended-tag">À comparer</span></div><div class="pipeline-arrow">→</div>
-            <div class="pipeline-step"><div class="step-number">04</div><div class="step-icon purple">⌁</div><strong>Contrôle qualité</strong><small>Suivi des colonnes</small></div><div class="pipeline-arrow">→</div>
-            <div class="pipeline-step"><div class="step-number">05</div><div class="step-icon green">✓</div><strong>Distribution</strong><small>Désinfection & réseau</small></div><div class="pipeline-arrow">→</div>
-            <div class="pipeline-step"><div class="step-number">06</div><div class="step-icon gray">♺</div><strong>Déchets PFAS</strong><small>Médias usés tracés</small></div>
+          <div class="card">
+            <h3>Ce que montrent les analyses</h3>
+            <p>Les quatre prélèvements dépassent la limite de qualité. Le détail fait apparaître PFHxS, PFOA, PFOS, PFHxA, PFPeA et PFHpA.</p>
+            <p>Ce mélange comprend des PFAS à chaînes relativement courtes, dont le comportement d’adsorption diffère. Le traitement doit donc être évalué sur chaque molécule, et pas seulement sur la somme.</p>
+            <p>Certaines eaux souterraines de la Métropole sont riches en fer et en manganèse. Si c’est le cas à Semoy, une déferrisation et une démanganisation doivent précéder le traitement des PFAS pour limiter le colmatage et préserver les médias.</p>
+            <p class="small-note">Fer, manganèse, matière organique, turbidité, pH et autres ions du captage ne sont pas établis. Une nouvelle campagne de mesures est nécessaire avant tout dimensionnement.</p>
           </div>
-          <p class="section-note">Variante de recours : membranes (osmose inverse ou nanofiltration), qui séparent les PFAS dans un concentrat sans les détruire. ELIXIR ne peut intervenir qu’en aval, sur un effluent admissible, et non comme filière de production d’eau potable.</p>
-        </section>
+        </div>
 
-        <section class="bottom-grid" id="options">
-          <article class="card recommendation-card">
-            <div class="card-head"><div><span class="section-kicker">DÉCISION ACTUELLE</span><h2>Interconnexion maintenue</h2></div><span class="recommendation-icon">✓</span></div>
-            <p>Semoy reste alimentée par les captages d’Orléans. La remise en service des Hautes Bordes ne pourra être envisagée qu’après validation technique, sanitaire et économique.</p>
-            <div class="recommendation-list"><div><span>01</span><strong>Situation sécurisée</strong><small>Maintien de l’alimentation par interconnexion</small></div><div><span>02</span><strong>Étude de réhabilitation</strong><small>Essais comparatifs CAG et résines PFAS</small></div><div><span>03</span><strong>Décision ultérieure</strong><small>Uniquement si la valeur de résilience est démontrée</small></div></div>
-            <button class="primary-button">Accéder à la feuille de route <span>→</span></button>
-          </article>
-          <article class="card options-card">
-            <div class="card-head"><div><span class="section-kicker">POUR L’ÉTUDE FUTURE</span><h2>Options à comparer</h2></div><button class="more-button">•••</button></div>
-            <div class="option-row"><div class="option-name"><span class="option-rank">01</span><div><strong>Résines PFAS</strong><small>Pilote prioritaire</small></div></div><div class="score"><strong>74</strong><span>/100</span><div class="mini-bar"><i style="width:74%"></i></div></div></div>
-            <div class="option-row"><div class="option-name"><span class="option-rank">02</span><div><strong>Charbon actif (CAG)</strong><small>Pilote prioritaire · référence mature</small></div></div><div class="score"><strong>71</strong><span>/100</span><div class="mini-bar orange"><i style="width:71%"></i></div></div></div>
-            <div class="option-row"><div class="option-name"><span class="option-rank">03</span><div><strong>Osmose inverse</strong><small>Recours ciblé</small></div></div><div class="score"><strong>66</strong><span>/100</span><div class="mini-bar purple"><i style="width:66%"></i></div></div></div>
-            <div class="option-row"><div class="option-name"><span class="option-rank">04</span><div><strong>CAG + résines</strong><small>Seulement si gain démontré</small></div></div><div class="score"><strong>60</strong><span>/100</span><div class="mini-bar gray"><i style="width:60%"></i></div></div></div>
-            <div class="option-row"><div class="option-name"><span class="option-rank">05</span><div><strong>Membranes + ELIXIR</strong><small>Scénario conditionnel · destruction aval</small></div></div><div class="score"><span class="score-off">Hors matrice</span></div></div>
-            <p class="card-note">Notes provisoires : l’écart 74 / 71 repose sur des jugements qualitatifs et ne désigne pas de gagnant. Le coût est noté à l’identique pour CAG et résines faute de devis comparables à Semoy.</p>
-          </article>
-        </section>
+        <h2>Objectifs du traitement</h2>
+        <div class="grid g5">
+          <div class="card mini"><h3>Sanitaire</h3><p>Respecter 100 ng/L pour la somme des 20 PFAS et les autres exigences applicables.</p></div>
+          <div class="card mini"><h3>Conception</h3><p>Viser 50 ng/L en sortie pour disposer d’une marge opérationnelle.</p></div>
+          <div class="card mini"><h3>Technique</h3><p>Fonctionnement stable et continu, risque de percée des filtres limité.</p></div>
+          <div class="card mini"><h3>Économique</h3><p>Minimiser le coût complet du mètre cube d’eau conforme.</p></div>
+          <div class="card mini"><h3>Environnemental</h3><p>Gestion traçable des médias et déchets contenant les PFAS captés.</p></div>
+        </div>
 
-        <section class="section-block" id="economics">
-          <div class="section-title"><div><span class="section-kicker">MODÈLE ÉCONOMIQUE</span><h2>Coût actualisé sur 20 ans</h2></div><span class="roadmap-progress">Hypothèses pédagogiques · aucun devis Semoy</span></div>
-          <div class="duo-grid">
-            <article class="card">
-              <div class="card-head"><div><span class="section-kicker">SIMULATEUR</span><h2>Coût par m³ conforme</h2></div></div>
-              <div class="card-body">
-                <div class="calc-inputs">
-                  <label>CAPEX (€ HT)<input type="number" id="calcCapex" value="1000000" min="0" step="50000" /></label>
-                  <label>Volume (m³/an)<input type="number" id="calcVolume" value="500000" min="1" step="50000" /></label>
-                  <label>OPEX (€/m³)<input type="number" id="calcOpex" value="0.10" min="0" step="0.01" /></label>
-                </div>
-                <div class="calc-results">
-                  <div><small>Annuité du CAPEX</small><strong id="outAnnuity">—</strong></div>
-                  <div><small>Part CAPEX</small><strong id="outCapexM3">—</strong></div>
-                  <div><small>Coût annuel partiel</small><strong id="outTotal">—</strong></div>
-                  <div class="calc-main"><small>Coût partiel au m³</small><strong id="outTotalM3">—</strong></div>
-                </div>
-                <p class="card-note flat">Taux d’actualisation 3 % sur 20 ans (facteur d’annuité 0,067216). Restent à ajouter : déchets, analyses, énergie et renouvellements, inconnus sans devis. Le volume réel de Semoy n’est pas établi.</p>
-              </div>
-            </article>
-            <article class="card">
-              <div class="card-head"><div><span class="section-kicker">RÉFÉRENCES EXTERNES</span><h2>Ordres de grandeur publiés</h2></div></div>
-              <div class="card-body table-scroll">
-                <table class="data-table">
-                  <thead><tr><th>Référence</th><th>Montant</th><th>Périmètre</th></tr></thead>
-                  <tbody>
-                    <tr><td>CAG mobile 25 m³/h · Saint-Louis</td><td>700 k€ HT / 2 ans<br /><b>≈ 1,92 €/m³</b></td><td>Location, exploitation, installation · 500 m³/j</td></tr>
-                    <tr><td>CAG mobile 65 m³/h · Saint-Louis</td><td>1,3 M€ HT / 2 ans<br /><b>≈ 1,37 €/m³</b></td><td>1 300 m³/j</td></tr>
-                    <tr><td>CAG mobile 450 m³/h · Saint-Louis</td><td>4,5 M€ HT / 2 ans<br /><b>≈ 0,86 €/m³</b></td><td>7 200 m³/j</td></tr>
-                    <tr><td>Exploitation filtres CAG · Belkouteb 2020</td><td>0,020–0,100 €/m³</td><td>Selon objectif 85 ou 10 ng/L (11 PFAS), hors CAPEX</td></tr>
-                    <tr><td>Médias seuls · Riegel 2023</td><td>CAG 0,11 · résines 0,20 €/m³</td><td>Matériau pour PFHxA, prix antérieurs à 2020</td></tr>
-                    <tr><td>Enquête FNCCR · rapport IGAS</td><td>CAG 0,07–0,33 · membranes 0,18–0,39 €/m³</td><td>Contexte pesticides, grandes collectivités</td></tr>
-                  </tbody>
-                </table>
-                <p class="card-note flat">Ratios Saint-Louis calculés sur une production théorique continue. Périmètres hétérogènes : aucun n’est un tarif ni une estimation pour Semoy.</p>
-              </div>
-            </article>
-          </div>
-          <div class="duo-grid">
-            <article class="card">
-              <div class="card-head"><div><span class="section-kicker">DESTRUCTION AVAL</span><h2>ELIXIR : capacité et coût</h2></div></div>
-              <div class="card-body table-scroll">
-                <div class="chips"><span>4–5 m³/j</span><span>1 200 m³/an par unité</span><span>250 kWh/m³</span><span>1 000 € HT/m³ en prestation</span><span>Achat 3 M€ HT</span><span>Location 40 k€ HT/mois</span></div>
-                <table class="data-table">
-                  <thead><tr><th>Flux à détruire</th><th>Volume / an</th><th>Prestation</th><th>Unités</th></tr></thead>
-                  <tbody>
-                    <tr><td>1 m³/j</td><td>365 m³</td><td>365 k€ HT/an</td><td>1</td></tr>
-                    <tr><td>5 m³/j</td><td>1 825 m³</td><td>1,83 M€ HT/an</td><td>2</td></tr>
-                    <tr><td>50 m³/j <small>(10 % de 500 m³/j)</small></td><td>18 250 m³</td><td>18,25 M€ HT/an</td><td>16</td></tr>
-                    <tr><td>500 m³/j <small>(eau brute, non recommandé)</small></td><td>182 500 m³</td><td>182,5 M€ HT/an</td><td>153</td></tr>
-                  </tbody>
-                </table>
-                <p class="card-note flat">Tarifs communiqués par l’équipe le 12/10/2026, non confirmés par une offre fournisseur. Débit et taux de concentrat de Semoy inconnus : calculs d’illustration. Égalité brute achat / location : 6,25 ans, hors énergie, personnel et maintenance.</p>
-              </div>
-            </article>
-            <article class="card">
-              <div class="card-head"><div><span class="section-kicker">FINANCEMENT</span><h2>Montage illustratif pour 1 M€ HT</h2></div></div>
-              <div class="card-body table-scroll">
-                <table class="data-table">
-                  <thead><tr><th>Source</th><th>Sans aide</th><th>Subvention hypothétique</th></tr></thead>
-                  <tbody>
-                    <tr><td>Subventions publiques</td><td>0 €</td><td>300 000 € <small>(non acquise)</small></td></tr>
-                    <tr><td>Autofinancement</td><td>200 000 €</td><td>200 000 €</td></tr>
-                    <tr><td>Emprunt (Aqua Prêt ou autre)</td><td>800 000 €</td><td>500 000 €</td></tr>
-                    <tr><td>Contribution pollueur-payeur</td><td>0 €</td><td>0 €</td></tr>
-                  </tbody>
-                </table>
-                <ul class="plain-list">
-                  <li><b>Agence de l’eau Loire-Bretagne</b> — rendez-vous de pré-éligibilité (12e programme 2025–2030).</li>
-                  <li><b>Banque des Territoires</b> — Aqua Prêt, dette de 15 à 60 ans sous réserve d’instruction.</li>
-                  <li><b>Région / France 2030</b> — aides à l’innovation de l’entreprise porteuse d’un pilote, pas à l’ouvrage public.</li>
-                  <li><b>Pollueur-payeur</b> — axe de plaidoyer, valeur nulle tant que rien n’est contractualisé ou jugé.</li>
-                </ul>
-                <p class="card-note flat">Parts fictives de montage. Aucun financement externe n’est acquis à ce stade.</p>
-              </div>
-            </article>
-          </div>
-        </section>
+        <h2>Filière recommandée : adsorption sélective</h2>
+        <ol class="flow six">
+          <li><strong>Captage et contrôle</strong><span>Analyse de l’eau brute</span></li>
+          <li><strong>Prétraitement</strong><span>Fer et manganèse, si nécessaire</span></li>
+          <li class="key"><strong>Adsorption des PFAS</strong><span>Résines ou charbon actif, colonnes tête et sécurité</span></li>
+          <li><strong>Surveillance</strong><span>Prélèvements à l’entrée, entre colonnes, en sortie</span></li>
+          <li><strong>Désinfection</strong><span>Contrôles puis distribution</span></li>
+          <li><strong>Déchets PFAS</strong><span>Filière spécialisée et traçabilité</span></li>
+        </ol>
+        <p>Deux médias sont à mettre en concurrence sur l’eau de Semoy : les résines échangeuses d’anions spécifiques aux PFAS, à tester en premier en raison de la diversité des molécules, et le charbon actif granulaire (CAG), référence mature déjà utilisée sur d’autres installations métropolitaines. Les installer en série ne se justifie que si les essais démontrent un gain significatif au regard du surcoût.</p>
+        <div data-table="mediaCompare"></div>
 
-        <section class="roadmap-section" id="roadmap"><div class="section-title"><div><span class="section-kicker">PROCHAINES ÉTAPES</span><h2>Feuille de route du projet</h2></div><span class="roadmap-progress">Phase 0 en cours · données locales à obtenir</span></div><div class="roadmap"><div class="roadmap-line"></div><div class="roadmap-item current"><div class="roadmap-dot">01</div><div><strong>Collecte des données</strong><small>Débit, volumes, analyses récentes, coût de l’interconnexion</small></div><span>En cours</span></div><div class="roadmap-item"><div class="roadmap-dot">02</div><div><strong>Essais pilotes CAG / résines</strong><small>Courbes de percée et durée de vie</small></div><span>À venir</span></div><div class="roadmap-item"><div class="roadmap-dot">03</div><div><strong>Études économiques</strong><small>CAPEX, OPEX et coût actualisé sur 20 ans</small></div><span>À venir</span></div><div class="roadmap-item"><div class="roadmap-dot">04</div><div><strong>Décision de la Métropole</strong><small>Arbitrage interconnexion ou réhabilitation</small></div><span>À venir</span></div><div class="roadmap-item"><div class="roadmap-dot">05</div><div><strong>Mise en œuvre & suivi</strong><small>Indicateurs, alarmes et traçabilité</small></div><span>À venir</span></div></div></section>
+        <h2>Trois scénarios techniques</h2>
+        <div class="segmented" id="scenarioTabs" role="tablist"></div>
+        <div class="card" id="scenarioPanel"></div>
+        <p class="small-note">Ordre de grandeur illustratif : pour 500 m³/j d’eau brute et 10 % de concentrat, il faudrait gérer 50 m³/j de rejets, bien au-delà d’une machine ELIXIR annoncée à 4–5 m³/j. Le débit et le taux de concentrat réels de Semoy sont inconnus.</p>
 
-        <section class="section-block" id="partners">
-          <div class="section-title"><div><span class="section-kicker">PARTENAIRES</span><h2>Rôles proposés</h2></div></div>
-          <div class="partner-grid">
-            <article class="card partner-card"><strong>Orléans Métropole</strong><small>Maîtrise d’ouvrage</small><p>Fournit les données de captage et d’interconnexion, arbitre le choix.</p></article>
-            <article class="card partner-card"><strong>SUEZ</strong><small>Exploitant · retour de Ternay</small><p>Pilote comparatif CAG / résines et devis, sans attribution de marché présumée.</p></article>
-            <article class="card partner-card"><strong>MS4ALL</strong><small>Simulation moléculaire</small><p>Présélection des médias par modélisation ; ce n’est pas un capteur en continu.</p></article>
-            <article class="card partner-card"><strong>Atos</strong><small>Données et jumeau numérique</small><p>Tableau de bord qualité / coût / risques, plateforme de données et gouvernance.</p></article>
-            <article class="card partner-card"><strong>ArianeGroup / Aquarden</strong><small>ELIXIR · oxydation supercritique</small><p>Étude d’une destruction aval d’effluents compatibles, sans présumer des médias usés.</p></article>
-            <article class="card partner-card"><strong>Banque des Territoires</strong><small>Ingénierie et prêts long terme</small><p>Test du montage de financement et du coût du capital ; aucune subvention acquise.</p></article>
-          </div>
-        </section>
-
-        <section class="section-block" id="plaquette">
-          <div class="section-title"><div><span class="section-kicker">PLAQUETTE DE SENSIBILISATION</span><h2>L’eau du robinet, un geste simple chaque jour</h2></div><span class="roadmap-progress">À valider par Orléans Métropole avant diffusion</span></div>
-          <article class="card plaquette-card">
-            <div>
-              <h3>Pourquoi la choisir ?</h3>
-              <ul class="plain-list">
-                <li><b>Pratique</b> — disponible chez soi, sans packs à transporter.</li>
-                <li><b>Moins d’emballages</b> — une carafe ou une gourde réutilisable.</li>
-                <li><b>Économique</b> — le prix figure sur votre facture.</li>
-                <li><b>Suivie</b> — contrôle sanitaire réglementaire et bulletins de l’ARS.</li>
-              </ul>
+        <h2>Pré-dimensionnement : volume de média</h2>
+        <div class="grid g2">
+          <div class="card calc">
+            <p class="formula">Volume (m³) = débit (m³/h) × temps de contact (min) ÷ 60</p>
+            <div class="inputs">
+              <label>Débit (m³/h)<input type="number" id="mediaFlow" value="50" min="0" step="5" /></label>
+              <label>Temps de contact (min)<input type="number" id="mediaTime" value="5" min="0" step="1" /></label>
             </div>
-            <div>
-              <h3>Les bons réflexes</h3>
-              <ul class="plain-list">
-                <li>Conserver l’eau dans une carafe propre, au réfrigérateur.</li>
-                <li>Nettoyer régulièrement gourdes et contenants.</li>
-                <li>Respecter les consignes officielles en cas de restriction.</li>
-                <li>Consulter les informations locales en cas de doute.</li>
-              </ul>
-            </div>
-            <div>
-              <h3>Et les PFAS ?</h3>
-              <p>La contamination d’un captage ne signifie pas que toute l’eau distribuée dans la Métropole est non conforme. Le choix de traitement pour les Hautes Bordes n’est pas arrêté.</p>
-              <p class="card-note flat">Ne pas annoncer de mise en service, de financement obtenu ni d’absence totale de PFAS avant mesure et décision officielle.</p>
-            </div>
-          </article>
-        </section>
+            <div class="result"><small>Volume théorique pour une colonne</small><strong id="mediaOut">—</strong></div>
+            <p class="small-note">Exemple de méthode. Ce volume vaut pour une colonne, pas pour une installation à deux colonnes, et ne constitue pas un dimensionnement de Semoy.</p>
+          </div>
+          <div class="card">
+            <h3>Données nécessaires au dimensionnement</h3>
+            <div data-table="sizingData"></div>
+          </div>
+        </div>
 
-        <section class="section-block" id="sources">
-          <div class="section-title"><div><span class="section-kicker">TRAÇABILITÉ</span><h2>Documents sources</h2></div></div>
-          <article class="card">
-            <ul class="source-list">
-              <li><b>D1</b><span>Orléans Métropole et partenaires, présentation du hackathon (73 pages).</span></li>
-              <li><b>S1</b><a href="https://www.orleans-metropole.fr/actualites/detail/qualite-de-leau-potable-alteree-a-semoy-orleans-metropole-repond-a-lurgence" target="_blank" rel="noopener">Orléans Métropole — Qualité de l’eau potable altérée à Semoy (16/04/2024)</a></li>
-              <li><b>S3</b><a href="https://www.orleans-metropole.fr/fileadmin/orleans-metropole/MEDIA/document/environnement/eau_potable/RAPPORT_EAU_POTABLE_2022.pdf" target="_blank" rel="noopener">Orléans Métropole — Rapport eau potable 2022, p. 45 (station de déferrisation-démanganisation)</a></li>
-              <li><b>E2</b><a href="https://politique.pappers.fr/commune/document/923560a9d4fb268e11ee16e51ee740fa" target="_blank" rel="noopener">Saint-Louis Agglomération — conseil du 14 mai 2025, unités mobiles CAG</a></li>
-              <li><b>S5</b><a href="https://pubmed.ncbi.nlm.nih.gov/32585466/" target="_blank" rel="noopener">Belkouteb et al., Water Research (2020)</a></li>
-              <li><b>S6</b><a href="https://link.springer.com/article/10.1186/s12302-023-00716-5" target="_blank" rel="noopener">Riegel et al., Environmental Sciences Europe (2023)</a></li>
-              <li><b>S9</b><a href="https://www.banquedesterritoires.fr/produits-services/prets-long-terme/aqua-pret" target="_blank" rel="noopener">Banque des Territoires — Aqua Prêt</a></li>
-              <li><b>F1</b><a href="https://www.eau-loire-bretagne.fr/sites/agence/home/agence-de-leau/le-12e-programme-2025-2030.html" target="_blank" rel="noopener">Agence de l’eau Loire-Bretagne — 12e programme 2025–2030</a></li>
-              <li><b>F7</b><a href="https://www.senat.fr/questions/base/2026/qSEQ260107273.html" target="_blank" rel="noopener">Sénat — réponse ministérielle sur la redevance PFAS (24/09/2026)</a></li>
+        <h2>Validation avant remise en service</h2>
+        <ol class="timeline">
+          <li><b>Phase 1</b><strong>Caractérisation du captage</strong><span>Campagne d’analyses actualisée et faisabilité technique.</span></li>
+          <li><b>Phase 2</b><strong>Essais comparatifs</strong><span>CAG et résines en parallèle : performance par molécule, saturation, pertes de charge, maintenance.</span></li>
+          <li><b>Phase 3</b><strong>Validation technico-économique</strong><span>Investissements, exploitation, déchets, coût par m³, face à l’interconnexion.</span></li>
+          <li><b>Phase 4</b><strong>Mise en service conditionnelle</strong><span>Travaux, qualification, conformité démontrée, validations sanitaires.</span></li>
+        </ol>
+        <p>Le programme d’essais s’étend aux membranes (rétention par PFAS, taux de récupération, conductivité, énergie, flux de concentrat) et à ELIXIR (fiche d’acceptation des effluents, analyse d’un échantillon de concentrat, bilan matière, composés secondaires, capacité annuelle contractuelle).</p>
+
+        <h2>Indicateurs de réussite</h2>
+        <div data-table="successIndicators"></div>
+      </section>
+
+      <!-- ================= LIVRABLE 2 ================= -->
+      <section class="view" id="benchmark">
+        <div class="hero">
+          <p class="kicker">Livrable 2</p>
+          <h1>Benchmark des solutions et bonnes pratiques</h1>
+          <p class="lead">Le maintien de l’interconnexion est la référence actuelle. Si une réhabilitation est étudiée, charbon actif granulaire et résines spécifiques sont les deux technologies à tester en parallèle. Les membranes restent un recours, et le devenir des résidus se prévoit dès la conception.</p>
+        </div>
+
+        <h2>Technologies comparées</h2>
+        <div data-table="benchTech"></div>
+        <div class="note"><p>Retirer les PFAS de l’eau distribuée n’est pas les détruire : le charbon et les résines les piègent, les membranes les concentrent, et ELIXIR serait un traitement séparé d’effluents admis. La compatibilité des charbons et résines usés avec ELIXIR ne peut pas être présumée.</p></div>
+
+        <h2>Membranes et ELIXIR</h2>
+        <div data-table="benchMembranes"></div>
+
+        <h2>Référence industrielle : l’usine de Ternay (SUEZ)</h2>
+        <div class="grid g2">
+          <div class="card">
+            <p>À Ternay (Rhône-Sud), six filtres existants ont été transformés en réacteurs Carbazur® Simplex à charbon actif renouvelable en continu, après des essais en laboratoire et plus de deux ans d’essais en conditions réelles.</p>
+            <div class="grid g2 tight">
+              <div class="stat"><strong>5,6 <span>M m³/an</span></strong><small>d’eau potable produite</small></div>
+              <div class="stat"><strong>170 000</strong><small>personnes desservies</small></div>
+            </div>
+            <p class="small-note">Le coût n’est pas indiqué dans la présentation. La référence renforce la crédibilité du CAG, sans prouver son coût ni son efficacité sur l’eau de Semoy.</p>
+          </div>
+          <div class="card">
+            <h3>Enseignements pour Semoy</h3>
+            <ul class="list">
+              <li>Étudier le réemploi des ouvrages existants avant de prévoir une usine neuve.</li>
+              <li>Prévoir des essais de percée et valider la durée de vie des médias.</li>
+              <li>Comparer les contraintes d’exploitation et de déchets de plusieurs configurations.</li>
+              <li>L’échelle de Ternay n’est pas transposable directement.</li>
             </ul>
-            <p class="card-note">Références externes reprises du dossier consolidé sans certification indépendante de chaque contenu ou tarif.</p>
-          </article>
-        </section>
-        <footer><span>eau·pilot · Prototype de démonstration</span><span>Données historiques · À confirmer par nouvelle campagne d’analyses</span></footer>
-      </main>
-    </div>
+          </div>
+        </div>
+
+        <h2>Coûts publiés : unités mobiles CAG de Saint-Louis Agglomération</h2>
+        <div data-table="saintLouis"></div>
+        <p class="small-note">Ratio = coût sur deux ans ÷ (730 jours × production journalière annoncée). Il suppose une production continue au volume prévu : ce n’est ni un tarif contractuel ni une estimation pour Semoy, et les trois lignes ne dessinent pas une courbe universelle d’économie d’échelle.</p>
+
+        <h2>Matrice pondérée</h2>
+        <div class="grid g2">
+          <div class="card">
+            <div data-table="matrix"></div>
+            <p class="small-note">Notes de 1 à 5, provisoires. Le coût est noté à l’identique pour CAG et résines faute de devis comparables, pour ne pas déclarer à tort un gagnant économique.</p>
+          </div>
+          <div class="card calc">
+            <h3>Tester la sensibilité du classement</h3>
+            <label class="range">Poids du coût : <b id="costWeightOut">25 %</b>
+              <input type="range" id="costWeight" min="15" max="35" step="5" value="25" />
+            </label>
+            <p class="small-note">L’écart est redistribué sur l’efficacité (deux tiers) et l’intégration au site (un tiers).</p>
+            <div class="inputs">
+              <label>Note de coût du CAG<select id="costCag"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></label>
+              <label>Note de coût des résines<select id="costResin"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></label>
+            </div>
+            <div id="matrixScores" class="scores"></div>
+            <p class="small-note" id="matrixVerdict"></p>
+          </div>
+        </div>
+        <p class="small-note">Une seconde grille, issue du document sur ELIXIR et les membranes, donne CAG 73, résines 71, membranes 69 et membranes + ELIXIR 60. Elle repose sur d’autres critères et pondérations : les deux jeux de scores ne sont ni comparables ni fusionnables, et montrent surtout la sensibilité du classement.</p>
+
+        <h2>Interconnexion ou réhabilitation&nbsp;?</h2>
+        <div data-table="interVsRehab"></div>
+
+        <h2>SWOT : réhabiliter les Hautes Bordes</h2>
+        <div class="swot">
+          <div class="s"><h3>Forces</h3><p>Technologies CAG et résines éprouvées, ressource locale récupérable, diversification de la production.</p></div>
+          <div class="w"><h3>Faiblesses</h3><p>Investissement et consommables, gestion des résidus PFAS, efficacité à démontrer, éventuel traitement du fer et du manganèse.</p></div>
+          <div class="o"><h3>Opportunités</h3><p>Résilience métropolitaine améliorée, compétences des partenaires valorisées, financement d’études et d’investissements, suivi optimisé.</p></div>
+          <div class="t"><h3>Menaces</h3><p>Durcissement des exigences, contamination persistante, saturation précoce, investissement non compétitif face à l’interconnexion.</p></div>
+        </div>
+
+        <h2>Partenaires : rôles proposés</h2>
+        <div data-table="partners"></div>
+
+        <h2>Bonnes pratiques</h2>
+        <div class="card">
+          <ul class="list cols">
+            <li>Protéger les aires d’alimentation des captages.</li>
+            <li>Réduire les émissions de PFAS à la source.</li>
+            <li>Réaliser des prélèvements réguliers.</li>
+            <li>Contrôler en tête et en sortie de traitement.</li>
+            <li>Anticiper la percée des médias.</li>
+            <li>Assurer la traçabilité des médias usés.</li>
+          </ul>
+          <p class="small-note">Ces mesures complètent les technologies curatives. L’interconnexion est un scénario de comparaison : sa capacité, sa qualité et sa robustesse restent à vérifier.</p>
+        </div>
+
+        <h2>Feuille de route</h2>
+        <div data-table="roadmap"></div>
+      </section>
+
+      <!-- ================= LIVRABLE 3 ================= -->
+      <section class="view" id="economie">
+        <div class="hero">
+          <p class="kicker">Livrable 3</p>
+          <h1>Modèle économique de sécurisation de l’eau potable</h1>
+          <p class="lead">Trois scénarios sont comparés sur 20 ans, en coûts supplémentaires par rapport à l’alimentation actuelle : maintien de l’interconnexion, remise en service avec charbon actif granulaire, remise en service avec résines spécifiques PFAS.</p>
+        </div>
+
+        <div class="grid g2">
+          <div class="card mini"><h3>CAPEX</h3><p>Dépenses d’investissement, payées une fois : ouvrages, filtres, travaux, raccordement.</p></div>
+          <div class="card mini"><h3>OPEX</h3><p>Dépenses d’exploitation, récurrentes : médias, énergie, analyses, personnel, déchets.</p></div>
+        </div>
+        <div class="note"><p>Le site dispose d’une station de déferrisation-démanganisation rénovée en 2022. Sa réutilisation est le principal levier économique à expertiser avant de chiffrer une unité PFAS.</p></div>
+
+        <h2>Simulateur : coût actualisé par m³ conforme</h2>
+        <div class="grid g2">
+          <div class="card calc">
+            <div class="inputs">
+              <label>CAPEX (€ HT)<input type="number" id="simCapex" value="1000000" min="0" step="50000" /></label>
+              <label>Volume conforme (m³/an)<input type="number" id="simVolume" value="500000" min="0" step="50000" /></label>
+              <label>OPEX (€/m³)<input type="number" id="simOpex" value="0.10" min="0" step="0.01" /></label>
+              <label>Subventions notifiées (€)<input type="number" id="simGrant" value="0" min="0" step="50000" /></label>
+              <label class="wide">Contribution pollueur-payeur contractualisée (€)<input type="number" id="simPolluter" value="0" min="0" step="50000" /></label>
+            </div>
+            <p class="small-note">Taux d’actualisation de 3 % sur 20 ans, soit un facteur d’annuité de 0,067216. Ce sont des hypothèses de modélisation, pas un taux de prêt.</p>
+          </div>
+          <div class="card">
+            <dl class="results">
+              <div><dt>Besoin de fonds propres et de dette</dt><dd id="simNet">—</dd></div>
+              <div><dt>Annuité de l’investissement</dt><dd id="simAnnuity">—</dd></div>
+              <div><dt>Exploitation annuelle</dt><dd id="simOpexYear">—</dd></div>
+              <div><dt>Coût annuel partiel</dt><dd id="simTotal">—</dd></div>
+              <div class="main"><dt>Coût partiel par m³</dt><dd id="simPerM3">—</dd></div>
+            </dl>
+            <p class="small-note">Restent à ajouter déchets, analyses, énergie et renouvellements non couverts, inconnus sans devis. Seules les aides certaines se déduisent : subventions et contribution du pollueur restent à 0 € dans le cas central. Aucune donnée ne confirme que Semoy doit produire 500 000 m³/an.</p>
+          </div>
+        </div>
+
+        <h2>Paliers de sensibilité du CAPEX</h2>
+        <div data-table="capexSteps"></div>
+
+        <h2>Prix vérifiés, nature et limites</h2>
+        <div data-table="prices"></div>
+
+        <h2>Seuil de décision</h2>
+        <div class="card">
+          <p>Soit K<sub>A</sub> le coût annuel additionnel mesuré de l’interconnexion, et K<sub>B</sub>, K<sub>C</sub> le coût annuel équivalent tout compris de chaque option de réhabilitation. Si K<sub>B</sub> dépasse K<sub>A</sub>, la différence est une «&nbsp;prime de résilience&nbsp;» : elle peut se justifier par la diversification des ressources, mais sa valeur doit être décidée et documentée par la Métropole.</p>
+        </div>
+        <div data-table="missingData"></div>
+
+        <h2>Chiffrage d’ELIXIR</h2>
+        <div class="grid g2">
+          <div class="card calc">
+            <div class="inputs">
+              <label>Flux à détruire (m³/j)<input type="number" id="elxFlow" value="5" min="0" step="1" /></label>
+              <label>Prix de l’électricité (€/kWh)<input type="number" id="elxPower" value="0.15" min="0" step="0.01" /></label>
+            </div>
+            <div class="presets" id="elxPresets">
+              <button type="button" data-flow="1">1 m³/j</button>
+              <button type="button" data-flow="5">5 m³/j</button>
+              <button type="button" data-flow="50">50 m³/j · 10 % de 500</button>
+              <button type="button" data-flow="500">500 m³/j · eau brute</button>
+            </div>
+            <dl class="results">
+              <div><dt>Volume annuel sur 365 jours</dt><dd id="elxVolume">—</dd></div>
+              <div><dt>Unités nécessaires à 1 200 m³/an</dt><dd id="elxUnits">—</dd></div>
+              <div><dt>Prestation en usine à 1 000 € HT/m³</dt><dd id="elxService">—</dd></div>
+              <div><dt>Location sur site à 480 000 € HT/an par unité</dt><dd id="elxRent">—</dd></div>
+              <div><dt>Achat à 3 M€ HT par unité</dt><dd id="elxBuy">—</dd></div>
+              <div><dt>Électricité à 250 kWh/m³</dt><dd id="elxEnergy">—</dd></div>
+            </dl>
+          </div>
+          <div class="card">
+            <div data-table="elixirOptions"></div>
+            <p class="small-note">Tarifs communiqués par l’équipe le 12 octobre 2026, non confirmés par une offre fournisseur. Le prix de l’électricité est hypothétique. La limite de 1 200 m³/an par unité est plus contraignante que les 4–5 m³/j annoncés. L’égalité brute entre achat et location intervient à 6,25 ans, hors financement, entretien et coûts résiduels : ce n’est pas une analyse de rentabilité.</p>
+          </div>
+        </div>
+
+        <h2>Comparaison économique des voies</h2>
+        <div data-table="routes"></div>
+
+        <h2>Financement : guichets et partenaires</h2>
+        <div data-table="funders"></div>
+
+        <h2>Pollueur-payeur : trois mécanismes distincts</h2>
+        <div class="grid g3">
+          <div class="card mini"><h3>Redevances du bassin</h3><p>Les agences de l’eau perçoivent des redevances et les redistribuent par leurs programmes d’intervention. Ce n’est pas une indemnisation directe de la Métropole.</p></div>
+          <div class="card mini"><h3>Redevance PFAS 2026</h3><p>La loi de finances pour 2026 crée une redevance sur certains rejets industriels, pour les installations autorisées rejetant plus de 100 g de PFAS par an. Elle vise 28 substances et finance les agences de l’eau.</p></div>
+          <div class="card mini"><h3>Responsabilité d’un pollueur identifié</h3><p>Une contribution directe suppose de documenter l’émetteur, les voies de transfert, les responsabilités applicables, les préjudices et leur chiffrage.</p></div>
+        </div>
+        <div class="note"><p>Le principe pollueur-payeur est un principe de justice environnementale et un axe de plaidoyer territorial. Ce n’est ni un guichet de financement immédiat ni une garantie de recouvrement : sa valeur reste nulle dans le plan de financement tant que rien n’est contractualisé ou établi en justice. S’il devient un acteur du financement, sa contribution se saisit dans le simulateur ci-dessus.</p></div>
+
+        <h2>Plan de financement illustratif pour 1 M€ HT</h2>
+        <div data-table="financePlan"></div>
+        <p class="small-note">Parts fictives de montage, pas des taux d’intervention annoncés. L’aide à l’innovation reçue par une start-up finance ses propres dépenses de R&amp;D et ne se déduit pas du CAPEX porté par la Métropole. L’impact sur le tarif dépend des volumes facturés et du budget du service : il ne se déduit pas directement du coût de traitement.</p>
+
+        <h2>Plan de déploiement</h2>
+        <div data-table="deployment"></div>
+      </section>
+
+      <!-- ================= LIVRABLE 4 ================= -->
+      <section class="view" id="plaquette">
+        <div class="hero no-print">
+          <p class="kicker">Livrable 4</p>
+          <h1>Plaquette de promotion de l’eau du robinet</h1>
+          <p class="lead">Proposition de document de sensibilisation, à valider par Orléans Métropole avant toute diffusion publique.</p>
+          <button type="button" class="button" id="printLeaflet">Imprimer la plaquette</button>
+        </div>
+
+        <article class="leaflet">
+          <header>
+            <p>Orléans Métropole</p>
+            <h2>L’eau du robinet</h2>
+            <p class="tagline">Un geste simple, chaque jour</p>
+          </header>
+          <div class="leaflet-body">
+            <section>
+              <h3>Une eau suivie et contrôlée</h3>
+              <p>L’eau distribuée fait l’objet de traitements adaptés à la ressource et de contrôles de qualité. Les autorités sanitaires assurent le contrôle réglementaire. Pour connaître les résultats de votre commune, consultez le bulletin de qualité de l’eau de l’ARS et les informations du service d’eau.</p>
+            </section>
+            <section>
+              <h3>Pourquoi choisir l’eau du robinet&nbsp;?</h3>
+              <ul>
+                <li><b>Pratique.</b> Disponible chez soi, sans packs de bouteilles à transporter.</li>
+                <li><b>Moins d’emballages.</b> Une carafe ou une gourde réutilisable limite les bouteilles à usage unique.</li>
+                <li><b>Économique au quotidien.</b> Le prix dépend du territoire et de la consommation : il figure sur votre facture.</li>
+                <li><b>Un choix en confiance.</b> La surveillance et l’information des usagers sont essentielles.</li>
+              </ul>
+            </section>
+            <section>
+              <h3>Les bons réflexes</h3>
+              <ul>
+                <li>Utilisez une carafe propre et conservez-la au réfrigérateur.</li>
+                <li>Nettoyez régulièrement gourdes et contenants.</li>
+                <li>Respectez les consignes officielles si une restriction ponctuelle d’usage est annoncée.</li>
+                <li>Consultez les informations locales en cas de doute sur la qualité de l’eau.</li>
+              </ul>
+            </section>
+            <section>
+              <h3>Et les PFAS&nbsp;?</h3>
+              <p>Les PFAS sont des substances persistantes surveillées dans l’environnement et l’eau potable. La contamination d’un captage ne signifie pas que toutes les eaux distribuées dans la Métropole sont non conformes. Les services responsables doivent garantir la qualité de l’eau distribuée et informer les habitants si des mesures particulières s’imposent.</p>
+            </section>
+          </div>
+          <footer>
+            <p class="retain">Choisir l’eau du robinet, c’est privilégier une ressource de proximité, surveillée et facile à utiliser, dans le respect des consignes sanitaires locales.</p>
+            <p>Pour en savoir plus : orleans-metropole.fr · bulletins de qualité de l’eau publiés par l’ARS</p>
+          </footer>
+        </article>
+
+        <div class="grid g2 no-print">
+          <div class="card">
+            <h3>Encadré de transparence</h3>
+            <p>Les technologies étudiées ne sont pas interchangeables : le charbon actif et les résines retiennent des PFAS, les membranes les séparent dans un concentrat, et des procédés spécialisés comme ELIXIR pourraient détruire certains effluents, sous réserve de validation. Le choix n’est pas arrêté pour le captage des Hautes Bordes.</p>
+          </div>
+          <div class="card">
+            <h3>À ne pas annoncer</h3>
+            <p>Une mise en service, un financement obtenu, une absence totale de PFAS ou un rendement de destruction à Semoy, avant mesure et décision officielle.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SOURCES ================= -->
+      <section class="view" id="sources">
+        <div class="hero">
+          <p class="kicker">Traçabilité</p>
+          <h1>Sources</h1>
+          <p class="lead">Les références externes sont reprises du dossier consolidé sans certification indépendante de chaque contenu ou tarif. L’éligibilité, les délais et les plafonds des aides se confirment auprès de chaque financeur à la date du dépôt.</p>
+        </div>
+        <div id="sourceList"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer no-print">
+      <div class="wrap">Projet PFAS · Orléans Métropole · étude de cas de hackathon. Données historiques et hypothèses de calcul : aucun montant ne vaut devis pour Semoy.</div>
+    </footer>
+
+    <script src="data.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

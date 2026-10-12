@@ -1,35 +1,25 @@
-Tableau de bord responsive en français
-Vue d’ensemble du captage des Hautes Bordes à Semoy, aligné sur le dossier consolidé des 4 livrables (12 octobre 2026)
-Indicateurs PFAS :
-valeur maximale historique : 327,3 ng/L
-limite réglementaire : 100 ng/L
-objectif de conception : 50 ng/L (cible d’étude, pas une norme)
-Graphique historique des concentrations
-Filière de traitement en 6 étapes, dont la gestion des déchets PFAS
-Comparaison des scénarios (notes provisoires, sans gagnant désigné) :
-Résines PFAS : 74/100
-Charbon actif : 71/100
-Osmose inverse : 66/100
-CAG + résines : 60/100
-Membranes + ELIXIR : hors matrice, scénario conditionnel
-Modèle économique :
-simulateur de coût actualisé (3 %, 20 ans)
-références de coûts externes
-capacité et coût d’ELIXIR
-montage de financement illustratif
-Décision actuelle : interconnexion maintenue
-Feuille de route du projet
-Partenaires et rôles proposés
-Plaquette « eau du robinet »
-Documents sources
-Interaction de sélection de période
-Bouton d’export simulé
-Responsive mobile
-Fichiers principaux :
+# Projet PFAS — Orléans Métropole
 
-index.html
-styles.css
-app.js
-Pour afficher le prototype, ouvrir :
+Site de présentation du dossier consolidé sur le captage des Hautes Bordes (Semoy), organisé autour des quatre livrables du 12 octobre 2026.
 
-http://localhost/projet/Hackaton/
+## Contenu
+
+- **Synthèse** : chiffres clés, décision recommandée, données manquantes, piste d'ouverture à l'échelle de la Métropole.
+- **Livrable 1 — Traitement** : diagnostic, objectifs, filière par adsorption, scénarios membranes et ELIXIR, calcul du volume de média, phases de validation.
+- **Livrable 2 — Benchmark** : technologies, référence de Ternay, coûts de Saint-Louis, matrice pondérée à sensibilité réglable, SWOT, partenaires, feuille de route.
+- **Livrable 3 — Modèle économique** : simulateur de coût actualisé (3 %, 20 ans) avec subventions et contribution pollueur-payeur, chiffrage d'ELIXIR, financement.
+- **Livrable 4 — Plaquette** : promotion de l'eau du robinet, imprimable.
+- **Sources** : références du dossier.
+
+Tous les montants sont des références externes ou des hypothèses de calcul, pas des devis pour Semoy.
+
+## Fichiers
+
+- `index.html` : structure et textes
+- `data.js` : tableaux, scénarios, matrice et sources
+- `app.js` : navigation, calculateurs, rendu des tableaux
+- `styles.css` : mise en forme
+
+## Affichage
+
+Ouvrir http://localhost/projet/Hackaton/

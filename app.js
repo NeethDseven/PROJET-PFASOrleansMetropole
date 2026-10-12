@@ -1,135 +1,151 @@
-const navItems = document.querySelectorAll('.nav-item[href^="#"]');
-const sections = [...document.querySelectorAll('main section[id]')];
-const pipelineDetails = [
-  ['Captage & contrôle', 'L’eau brute est prélevée puis analysée pour confirmer les PFAS, le débit, le fer, le manganèse et les paramètres qui peuvent affecter le traitement.', 'Données à obtenir : campagne PFAS récente, débit historique et débit exploitable.'],
-  ['Prétraitement', 'Une étape de déferrisation et de démanganisation peut protéger les équipements et limiter le colmatage des médias adsorbants. Le site dispose d’une station rénovée en 2022 dont le réemploi est le principal levier économique à expertiser.', 'Condition : audit d’état et de compatibilité hydraulique, et concentrations locales en fer, manganèse, turbidité et matière organique.'],
-  ['Adsorption PFAS', 'Deux colonnes tête / sécurité sont étudiées avec un média de résines spécifiques PFAS ou de charbon actif granulaire. Les membranes restent un recours si l’adsorption est insuffisante.', 'Validation : essais de percée par molécule, pertes de charge et durée de vie du média.'],
-  ['Contrôle qualité', 'Des points de prélèvement entre les colonnes et en sortie permettent d’anticiper la saturation avant toute perte de conformité.', 'Indicateur clé : rester sous 100 ng/L, avec une cible de conception à 50 ng/L.'],
-  ['Distribution', 'Après traitement, l’eau est désinfectée et contrôlée avant son introduction dans le réseau d’eau potable.', 'Passage en exploitation : autorisations sanitaires, réception et protocole de suivi.'],
-  ['Déchets PFAS', 'Les charbons ou résines usés sont pris en charge par une filière spécialisée, avec une traçabilité complète. Les possibilités de régénération ou de destruction sont à vérifier avec les opérateurs agréés.', 'Adsorber n’est pas détruire : la compatibilité des médias usés avec ELIXIR ne peut pas être présumée.'],
+const $ = (selector) => document.querySelector(selector);
+const fmt = (value, digits = 0) => value.toLocaleString('fr-FR', { minimumFractionDigits: digits, maximumFractionDigits: digits });
+const num = (selector) => Math.max(0, Number($(selector).value) || 0);
+
+// ---------- Navigation par livrable ----------
+const views = [...document.querySelectorAll('.view')];
+const tabs = [...document.querySelectorAll('.tabs a')];
+
+function showView() {
+  const id = location.hash.slice(1);
+  const current = views.find((view) => view.id === id) || views[0];
+  views.forEach((view) => view.classList.toggle('active', view === current));
+  tabs.forEach((tab) => tab.classList.toggle('active', tab.getAttribute('href') === `#${current.id}`));
+  window.scrollTo(0, 0);
+}
+
+window.addEventListener('hashchange', showView);
+showView();
+
+// ---------- Tableaux ----------
+document.querySelectorAll('[data-table]').forEach((holder) => {
+  if (!TABLES[holder.dataset.table]) return;
+  const { head, rows } = TABLES[holder.dataset.table];
+  const body = rows.map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join('')}</tr>`).join('');
+  holder.className = 'table-wrap';
+  holder.innerHTML = `<table><thead><tr>${head.map((cell) => `<th>${cell}</th>`).join('')}</tr></thead><tbody>${body}</tbody></table>`;
+});
+
+// ---------- Scénarios techniques ----------
+const scenarioTabs = $('#scenarioTabs');
+
+function showScenario(index) {
+  const scenario = SCENARIOS[index];
+  [...scenarioTabs.children].forEach((button, i) => button.setAttribute('aria-selected', i === index));
+  $('#scenarioPanel').innerHTML = `
+    <span class="tag">${scenario.status}</span>
+    <h3>${scenario.title}</h3>
+    <ol class="chain">${scenario.chain.map((step) => `<li>${step}</li>`).join('')}</ol>
+    <p>${scenario.text}</p>
+    <p class="small-note"><b>Condition de validation :</b> ${scenario.validation}</p>`;
+}
+
+SCENARIOS.forEach((scenario, index) => {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.setAttribute('role', 'tab');
+  button.textContent = scenario.name;
+  button.addEventListener('click', () => showScenario(index));
+  scenarioTabs.append(button);
+});
+showScenario(0);
+
+// ---------- Volume de média ----------
+function updateMedia() {
+  $('#mediaOut').textContent = `${fmt(num('#mediaFlow') * num('#mediaTime') / 60, 2)} m³`;
+}
+
+// ---------- Matrice pondérée ----------
+function renderMatrixTable() {
+  const head = ['Critère', 'Poids', ...MATRIX.options];
+  const rows = MATRIX.criteria.map((criterion) => [criterion.label, `${criterion.weight} %`, ...criterion.notes]);
+  const body = rows.map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join('')}</tr>`).join('');
+  const holder = document.querySelector('[data-table="matrix"]');
+  holder.className = 'table-wrap';
+  holder.innerHTML = `<table class="compact"><thead><tr>${head.map((cell) => `<th>${cell}</th>`).join('')}</tr></thead><tbody>${body}</tbody></table>`;
+}
+
+function updateMatrix() {
+  const costWeight = Number($('#costWeight').value);
+  const shift = 25 - costWeight;
+  const weights = { cost: costWeight, eff: 30 + shift * 2 / 3, site: 15 + shift / 3 };
+  const costNotes = [Number($('#costCag').value), Number($('#costResin').value), 2, 2];
+
+  const scores = MATRIX.options.map((option, i) => {
+    const total = MATRIX.criteria.reduce((sum, criterion) => {
+      const weight = weights[criterion.key] ?? criterion.weight;
+      const note = criterion.key === 'cost' ? costNotes[i] : criterion.notes[i];
+      return sum + weight * note;
+    }, 0);
+    return { option, score: total / 5 };
+  });
+
+  const ranked = [...scores].sort((a, b) => b.score - a.score);
+  $('#costWeightOut').textContent = `${costWeight} %`;
+  $('#matrixScores').innerHTML = ranked.map(({ option, score }) => `
+    <div class="score-row"><span>${option}</span><div class="score-bar"><i style="width:${score}%"></i></div><b>${fmt(score, Number.isInteger(score) ? 0 : 1)}</b></div>`).join('');
+
+  const gap = ranked[0].score - ranked[1].score;
+  $('#matrixVerdict').textContent = gap === 0
+    ? `${ranked[0].option} et ${ranked[1].option} sont à égalité : la matrice ne départage pas les options.`
+    : `${ranked[0].option} en tête avec ${fmt(gap, 1)} point${gap >= 2 ? 's' : ''} d’avance sur ${ranked[1].option}. L’écart reste faible au regard de notes qualitatives : seuls des essais et des devis comparables peuvent trancher.`;
+}
+
+// ---------- Coût actualisé ----------
+const ANNUITY = 0.03 / (1 - 1.03 ** -20);
+
+function updateCost() {
+  const volume = num('#simVolume');
+  const net = Math.max(0, num('#simCapex') - num('#simGrant') - num('#simPolluter'));
+  const annuity = net * ANNUITY;
+  const opexYear = volume * num('#simOpex');
+  const total = annuity + opexYear;
+  $('#simNet').textContent = `${fmt(net)} €`;
+  $('#simAnnuity').textContent = `${fmt(annuity)} €/an`;
+  $('#simOpexYear').textContent = `${fmt(opexYear)} €/an`;
+  $('#simTotal').textContent = `${fmt(total)} €/an`;
+  $('#simPerM3').textContent = volume ? `${fmt(total / volume, 3)} €/m³` : '—';
+}
+
+// ---------- ELIXIR ----------
+function updateElixir() {
+  const volume = num('#elxFlow') * 365;
+  const units = Math.ceil(volume / 1200);
+  $('#elxVolume').textContent = `${fmt(volume)} m³`;
+  $('#elxUnits').textContent = fmt(units);
+  $('#elxService').textContent = `${fmt(volume * 1000)} € HT/an`;
+  $('#elxRent').textContent = `${fmt(units * 480000)} € HT/an`;
+  $('#elxBuy').textContent = `${fmt(units * 3000000)} € HT`;
+  $('#elxEnergy').textContent = `${fmt(volume * 250 * num('#elxPower'))} €/an`;
+}
+
+$('#elxPresets').addEventListener('click', (event) => {
+  const flow = event.target.dataset.flow;
+  if (!flow) return;
+  $('#elxFlow').value = flow;
+  updateElixir();
+});
+
+// ---------- Liaisons ----------
+const bindings = [
+  [['#mediaFlow', '#mediaTime'], updateMedia],
+  [['#costWeight', '#costCag', '#costResin'], updateMatrix],
+  [['#simCapex', '#simVolume', '#simOpex', '#simGrant', '#simPolluter'], updateCost],
+  [['#elxFlow', '#elxPower'], updateElixir],
 ];
 
-const formatNumber = (value, digits = 0) => value.toLocaleString('fr-FR', { minimumFractionDigits: digits, maximumFractionDigits: digits });
-const calcInputs = ['#calcCapex', '#calcVolume', '#calcOpex'].map((id) => document.querySelector(id));
-
-function updateCalculator() {
-  const [capex, volume, opex] = calcInputs.map((input) => Math.max(0, Number(input.value) || 0));
-  const annuity = capex * 0.03 / (1 - 1.03 ** -20);
-  const total = annuity + volume * opex;
-  document.querySelector('#outAnnuity').textContent = `${formatNumber(annuity)} €/an`;
-  document.querySelector('#outTotal').textContent = `${formatNumber(total)} €/an`;
-  document.querySelector('#outCapexM3').textContent = volume ? `${formatNumber(annuity / volume, 3)} €/m³` : '—';
-  document.querySelector('#outTotalM3').textContent = volume ? `${formatNumber(total / volume, 3)} €/m³` : '—';
-}
-
-if (calcInputs.every(Boolean)) {
-  calcInputs.forEach((input) => input.addEventListener('input', updateCalculator));
-  updateCalculator();
-}
-
-const observer = new IntersectionObserver((entries) => {
-  const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-  if (!visible) return;
-  navItems.forEach((item) => item.classList.toggle('active', item.getAttribute('href') === `#${visible.target.id}`));
-}, { rootMargin: '-20% 0px -65% 0px', threshold: [0, 0.25] });
-
-sections.forEach((section) => observer.observe(section));
-
-document.querySelector('.primary-button')?.addEventListener('click', () => {
-  document.querySelector('#roadmap')?.scrollIntoView({ behavior: 'smooth' });
+renderMatrixTable();
+bindings.forEach(([selectors, update]) => {
+  selectors.forEach((selector) => $(selector).addEventListener('input', update));
+  update();
 });
 
-document.querySelector('.export-button')?.addEventListener('click', (event) => {
-  const button = event.currentTarget;
-  const original = button.innerHTML;
-  button.innerHTML = '✓ Rapport prêt';
-  button.style.background = '#2a9e8e';
-  setTimeout(() => {
-    button.innerHTML = original;
-    button.style.background = '';
-  }, 1800);
-});
+// ---------- Sources ----------
+$('#sourceList').innerHTML = SOURCES.map(({ group, items }) => `
+  <h2>${group}</h2>
+  <ul class="sources">${items.map(([ref, label, url]) => `
+    <li><b>${ref}</b>${url ? `<a href="${url}" target="_blank" rel="noopener">${label}</a>` : `<span>${label}</span>`}</li>`).join('')}
+  </ul>`).join('');
 
-document.querySelector('#periodSelect')?.addEventListener('change', (event) => {
-  const insight = document.querySelector('.chart-insight p');
-  if (event.target.value === 'Historique complet') {
-    insight.textContent = 'Vue historique sélectionnée. Les données disponibles couvrent actuellement 4 prélèvements entre novembre 2023 et janvier 2024.';
-  } else {
-    insight.textContent = 'Les 4 mesures historiques dépassent la limite de qualité. Une nouvelle campagne d’analyses est nécessaire avant tout dimensionnement.';
-  }
-});
-
-function showToast(message) {
-  let toast = document.querySelector('.toast');
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.className = 'toast';
-    document.body.append(toast);
-  }
-  toast.textContent = message;
-  toast.classList.add('visible');
-  clearTimeout(showToast.timeout);
-  showToast.timeout = setTimeout(() => toast.classList.remove('visible'), 2600);
-}
-
-function openDetails(title, body, note) {
-  const modal = document.createElement('div');
-  modal.className = 'modal-backdrop';
-  modal.innerHTML = `<div class="details-modal" role="dialog" aria-modal="true" aria-label="${title}">
-    <button class="modal-close" aria-label="Fermer">×</button>
-    <span class="section-kicker">DÉTAIL DU PROJET</span>
-    <h2>${title}</h2>
-    <p>${body}</p>
-    <div class="modal-note"><strong>À retenir</strong><span>${note}</span></div>
-    <button class="primary-button modal-action">Fermer</button>
-  </div>`;
-  document.body.append(modal);
-  const close = () => modal.remove();
-  modal.addEventListener('click', (event) => {
-    if (event.target === modal || event.target.closest('.modal-close') || event.target.closest('.modal-action')) close();
-  });
-  document.addEventListener('keydown', function escape(event) {
-    if (event.key === 'Escape') {
-      close();
-      document.removeEventListener('keydown', escape);
-    }
-  });
-}
-
-document.querySelectorAll('.pipeline-step').forEach((step, index) => {
-  step.setAttribute('tabindex', '0');
-  const open = () => openDetails(...pipelineDetails[index]);
-  step.addEventListener('click', open);
-  step.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      open();
-    }
-  });
-});
-
-document.querySelectorAll('.option-row').forEach((row) => {
-  row.setAttribute('tabindex', '0');
-  const name = row.querySelector('.option-name strong').textContent;
-  const selectScenario = () => {
-    document.querySelectorAll('.option-row').forEach((item) => item.classList.remove('selected'));
-    row.classList.add('selected');
-    showToast(`${name} sélectionné pour l’étude comparative`);
-  };
-  row.addEventListener('click', selectScenario);
-  row.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      selectScenario();
-    }
-  });
-});
-
-document.querySelector('.text-button')?.addEventListener('click', () => {
-  document.querySelector('.pipeline-step.highlight')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  showToast('Cliquez sur une étape pour afficher son détail');
-});
-
-document.querySelector('.project-picker')?.addEventListener('click', () => showToast('Projet actif : Hautes Bordes · Semoy'));
-document.querySelector('.help-card')?.addEventListener('click', () => showToast('Le dossier contient les sources, hypothèses et critères de validation.'));
-document.querySelectorAll('.more-button').forEach((button) => button.addEventListener('click', () => showToast('Menu d’actions disponible dans la version connectée')));
+// ---------- Impression de la plaquette ----------
+$('#printLeaflet').addEventListener('click', () => window.print());
