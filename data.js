@@ -238,8 +238,8 @@ const SOURCES = [
     group: 'Orléans Métropole',
     items: [
       ['S1', 'Qualité de l’eau potable altérée à Semoy : Orléans Métropole répond à l’urgence (16/04/2024)', 'https://www.orleans-metropole.fr/actualites/detail/qualite-de-leau-potable-alteree-a-semoy-orleans-metropole-repond-a-lurgence'],
-      ['S2', 'Rapport annuel sur l’activité de la régie de l’eau potable 2024', 'https://www.orleans-metropole.fr/fileadmin/orleans-metropole/MEDIA/document/environnement/eau_potable/rapport_annuel__sur_l_activite_de_la_regie_de_l_eau_potable_2024.pdf'],
-      ['S3', 'Rapport eau potable 2022, p. 45 (station de déferrisation-démanganisation)', 'https://www.orleans-metropole.fr/fileadmin/orleans-metropole/MEDIA/document/environnement/eau_potable/RAPPORT_EAU_POTABLE_2022.pdf'],
+      ['S2', 'Rapport annuel sur l’activité de la régie de l’eau potable 2024', ''],
+      ['S3', 'Rapport eau potable 2022, p. 45 (station de déferrisation-démanganisation)', ''],
     ],
   },
   {

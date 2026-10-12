@@ -21,8 +21,8 @@ showView();
 document.querySelectorAll('[data-table]').forEach((holder) => {
   if (!TABLES[holder.dataset.table]) return;
   const { head, rows } = TABLES[holder.dataset.table];
-  const body = rows.map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join('')}</tr>`).join('');
-  holder.className = 'table-wrap';
+  const body = rows.map((row) => `<tr>${row.map((cell, i) => `<td data-label="${head[i]}">${cell}</td>`).join('')}</tr>`).join('');
+  holder.className = 'table-wrap stack';
   holder.innerHTML = `<table><thead><tr>${head.map((cell) => `<th>${cell}</th>`).join('')}</tr></thead><tbody>${body}</tbody></table>`;
 });
 
