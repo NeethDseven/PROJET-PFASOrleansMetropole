@@ -62,10 +62,11 @@ a { color: var(--water); }
 
 /* ---------- Grilles et cartes ---------- */
 .grid { display: grid; gap: 16px; }
-.g2 { grid-template-columns: repeat(2, 1fr); }
-.g3 { grid-template-columns: repeat(3, 1fr); }
-.g4 { grid-template-columns: repeat(4, 1fr); }
-.g5 { grid-template-columns: repeat(5, 1fr); }
+.grid > *, .flow > *, .timeline > *, .swot > *, .inputs > * { min-width: 0; }
+.g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.g4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.g5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .grid.tight { gap: 10px; margin: 14px 0; }
 .grid + .grid, .grid + .note, .note + .grid { margin-top: 16px; }
 
@@ -248,18 +249,18 @@ table.compact td:not(:first-child), table.compact th:not(:first-child) { text-al
 @media (max-width: 900px) {
   table { font-size: 13px; }
   th, td { padding: 9px 10px; }
-  .g4, .g5, .g3 { grid-template-columns: repeat(2, 1fr); }
-  .flow, .flow.six { grid-template-columns: repeat(2, 1fr); }
+  .g4, .g5, .g3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .flow, .flow.six { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .flow li::after { content: none; }
-  .timeline { grid-template-columns: repeat(2, 1fr); }
+  .timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   .wrap { padding: 0 16px; }
   h1 { font-size: 25px; }
   .lead { font-size: 16px; }
   .header-date { display: none; }
-  .g2, .g3, .g4, .g5, .swot, .inputs, .timeline { grid-template-columns: 1fr; }
+  .g2, .g3, .g4, .g5, .swot, .inputs, .timeline { grid-template-columns: minmax(0, 1fr); }
   .list.cols { columns: 1; }
   .view { padding: 28px 0 48px; }
   h2 { margin-top: 34px; }
@@ -287,7 +288,7 @@ table.compact td:not(:first-child), table.compact th:not(:first-child) { text-al
 
   table.compact { font-size: 12px; }
   table.compact th { font-size: 10px; letter-spacing: 0; }
-  table.compact th, table.compact td { padding: 6px 3px; }
+  table.compact th, table.compact td { padding: 6px 5px; }
 }
 
 /* ---------- Impression : la plaquette seule ---------- */
