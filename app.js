@@ -2,24 +2,30 @@ const navItems = document.querySelectorAll('.nav-item[href^="#"]');
 const sections = [...document.querySelectorAll('main section[id]')];
 const pipelineDetails = [
   ['Captage & contrôle', 'L’eau brute est prélevée puis analysée pour confirmer les PFAS, le débit, le fer, le manganèse et les paramètres qui peuvent affecter le traitement.', 'Données à obtenir : campagne PFAS récente, débit historique et débit exploitable.'],
-  ['Prétraitement', 'Une étape de déferrisation et de démanganisation peut protéger les équipements et limiter le colmatage des médias adsorbants.', 'Condition : confirmer les concentrations locales en fer, manganèse, turbidité et matière organique.'],
-  ['Adsorption PFAS', 'Deux colonnes tête / sécurité sont étudiées avec un média de résines spécifiques PFAS ou de charbon actif granulaire.', 'Validation : essais de percée par molécule, pertes de charge et durée de vie du média.'],
+  ['Prétraitement', 'Une étape de déferrisation et de démanganisation peut protéger les équipements et limiter le colmatage des médias adsorbants. Le site dispose d’une station rénovée en 2022 dont le réemploi est le principal levier économique à expertiser.', 'Condition : audit d’état et de compatibilité hydraulique, et concentrations locales en fer, manganèse, turbidité et matière organique.'],
+  ['Adsorption PFAS', 'Deux colonnes tête / sécurité sont étudiées avec un média de résines spécifiques PFAS ou de charbon actif granulaire. Les membranes restent un recours si l’adsorption est insuffisante.', 'Validation : essais de percée par molécule, pertes de charge et durée de vie du média.'],
   ['Contrôle qualité', 'Des points de prélèvement entre les colonnes et en sortie permettent d’anticiper la saturation avant toute perte de conformité.', 'Indicateur clé : rester sous 100 ng/L, avec une cible de conception à 50 ng/L.'],
   ['Distribution', 'Après traitement, l’eau est désinfectée et contrôlée avant son introduction dans le réseau d’eau potable.', 'Passage en exploitation : autorisations sanitaires, réception et protocole de suivi.'],
+  ['Déchets PFAS', 'Les charbons ou résines usés sont pris en charge par une filière spécialisée, avec une traçabilité complète. Les possibilités de régénération ou de destruction sont à vérifier avec les opérateurs agréés.', 'Adsorber n’est pas détruire : la compatibilité des médias usés avec ELIXIR ne peut pas être présumée.'],
 ];
 
-const scenarioDetails = {
-  'Résines PFAS': 'Option prioritaire à tester : compacte et adaptée à de nombreux PFAS, mais sensible à la compétition ionique et au coût des résines usées.',
-  'Charbon actif (CAG)': 'Alternative industrielle mature, à comparer sur la même eau. Une attention particulière est nécessaire pour les PFAS à chaînes courtes et la gestion du charbon usé.',
-  'Osmose inverse': 'Recours ciblé offrant une séparation élevée, avec des besoins plus importants en énergie, prétraitement et gestion des concentrats.',
-  'CAG + résines': 'Combinaison à retenir uniquement si les essais démontrent un gain de qualité significatif par rapport au surcoût et à la maintenance.',
-};
-const scenarioTitles = {
-  'Résines PFAS': 'Tester les résines PFAS',
-  'Charbon actif (CAG)': 'Tester le charbon actif',
-  'Osmose inverse': 'Étudier l’osmose inverse',
-  'CAG + résines': 'Évaluer la combinaison CAG + résines',
-};
+const formatNumber = (value, digits = 0) => value.toLocaleString('fr-FR', { minimumFractionDigits: digits, maximumFractionDigits: digits });
+const calcInputs = ['#calcCapex', '#calcVolume', '#calcOpex'].map((id) => document.querySelector(id));
+
+function updateCalculator() {
+  const [capex, volume, opex] = calcInputs.map((input) => Math.max(0, Number(input.value) || 0));
+  const annuity = capex * 0.03 / (1 - 1.03 ** -20);
+  const total = annuity + volume * opex;
+  document.querySelector('#outAnnuity').textContent = `${formatNumber(annuity)} €/an`;
+  document.querySelector('#outTotal').textContent = `${formatNumber(total)} €/an`;
+  document.querySelector('#outCapexM3').textContent = volume ? `${formatNumber(annuity / volume, 3)} €/m³` : '—';
+  document.querySelector('#outTotalM3').textContent = volume ? `${formatNumber(total / volume, 3)} €/m³` : '—';
+}
+
+if (calcInputs.every(Boolean)) {
+  calcInputs.forEach((input) => input.addEventListener('input', updateCalculator));
+  updateCalculator();
+}
 
 const observer = new IntersectionObserver((entries) => {
   const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
@@ -108,9 +114,7 @@ document.querySelectorAll('.option-row').forEach((row) => {
   const selectScenario = () => {
     document.querySelectorAll('.option-row').forEach((item) => item.classList.remove('selected'));
     row.classList.add('selected');
-    document.querySelector('.recommendation-card h2').textContent = scenarioTitles[name];
-    document.querySelector('.recommendation-card p').textContent = scenarioDetails[name];
-    showToast(`${name} sélectionné comme scénario de travail`);
+    showToast(`${name} sélectionné pour l’étude comparative`);
   };
   row.addEventListener('click', selectScenario);
   row.addEventListener('keydown', (event) => {
