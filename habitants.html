@@ -16,6 +16,30 @@
     </header>
 
     <main class="wrap">
+
+      <section class="resident-leaflets" aria-label="Plaquettes d?information">
+        <div class="segmented no-print" role="tablist" aria-label="Choisir une plaquette">
+          <button type="button" id="tab-semoy" role="tab" aria-selected="true" aria-controls="panel-semoy">1 ? Semoy</button>
+          <button type="button" id="tab-orleans" role="tab" aria-selected="false" aria-controls="panel-orleans" tabindex="-1">2 ? Orl?ans M?tropole</button>
+        </div>
+        <div id="panel-semoy" role="tabpanel" aria-labelledby="tab-semoy" tabindex="0">
+          <figure class="leaflet">
+            <a href="assets/plaquette-semoy.jpg" target="_blank" rel="noopener" aria-label="Agrandir la plaquette Semoy">
+              <img src="assets/plaquette-semoy.jpg" width="1414" height="2000" alt="Plaquette Semoy : L?eau du robinet, une eau de confiance. Captage, pr?traitements, charbons actifs, filtration membranaire, contr?le et distribution. Une eau locale, contr?l?e et pratique." />
+            </a>
+            <figcaption class="no-print">Semoy ? <a href="assets/plaquette-semoy.jpg" download>T?l?charger la plaquette</a></figcaption>
+          </figure>
+        </div>
+        <div id="panel-orleans" role="tabpanel" aria-labelledby="tab-orleans" tabindex="0" hidden>
+          <figure class="leaflet">
+            <a href="assets/plaquette-orleans.jpg" target="_blank" rel="noopener" aria-label="Agrandir la plaquette Orl?ans M?tropole">
+              <img src="assets/plaquette-orleans.jpg" width="1414" height="2000" alt="Plaquette Orl?ans M?tropole : L?eau du robinet, une eau de confiance. Captage, pr?traitements, charbons actifs, filtration compl?mentaire, contr?le et distribution. Une eau locale, contr?l?e et pratique." />
+            </a>
+            <figcaption class="no-print">Orl?ans M?tropole ? <a href="assets/plaquette-orleans.jpg" download>T?l?charger la plaquette</a></figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section>
         <h2>En bref</h2>
         <div class="grid g3">
@@ -69,12 +93,7 @@
           <div class="card mini"><h3>Séparer</h3><p>Les membranes séparent l’eau traitée d’un concentré qui contient les polluants.</p></div>
           <div class="card mini"><h3>Détruire</h3><p>Des procédés spécialisés pourraient détruire ce concentré, sous réserve de validation.</p></div>
         </div>
-        <figure class="infographic">
-          <a href="assets/infographie-filiere-pfas.png" target="_blank" rel="noopener">
-            <img src="assets/infographie-filiere-pfas.png" alt="Schéma en huit étapes du traitement de l’eau contre les PFAS, du captage à la distribution." loading="lazy" />
-          </a>
-          <figcaption>Schéma pédagogique. Le traitement n’est pas choisi pour les Hautes Bordes. Toucher l’image pour l’agrandir.</figcaption>
-        </figure>
+
       </section>
 
       <section>
@@ -100,5 +119,6 @@
     <footer class="site-footer">
       <div class="wrap">Page proposée dans le cadre d’une étude de cas, à valider par Orléans Métropole avant diffusion. Elle ne remplace pas les informations officielles du service d’eau et de l’ARS. <a href="index.html">Voir le dossier complet</a></div>
     </footer>
+    <script src="habitants.js"></script>
   </body>
 </html>

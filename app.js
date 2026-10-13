@@ -146,6 +146,3 @@ $('#sourceList').innerHTML = SOURCES.map(({ group, items }) => `
   <ul class="sources">${items.map(([ref, label, url]) => `
     <li><b>${ref}</b>${url ? `<a href="${url}" target="_blank" rel="noopener">${label}</a>` : `<span>${label}</span>`}</li>`).join('')}
   </ul>`).join('');
-
-// ---------- Impression de la plaquette ----------
-$('#printLeaflet').addEventListener('click', () => window.print());
