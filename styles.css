@@ -205,6 +205,10 @@ table.compact td:not(:first-child), table.compact th:not(:first-child) { text-al
 
 /* ---------- Plaquette ---------- */
 .leaflet { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; max-width: 640px; margin: 0 auto 24px; }
+.leaflet-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 24px; }
+.leaflet-gallery .leaflet { width: 100%; margin: 0; background: #fff; }
+.leaflet-gallery img { display: block; width: 100%; height: auto; }
+.leaflet-gallery figcaption { padding: 12px 16px; text-align: center; }
 .leaflet footer { background: var(--water-soft); padding: 32px; text-align: center; font-size: 14px; }
 .leaflet .retain { font-size: 18px; font-weight: 600; color: var(--deep); }
 
@@ -293,9 +297,14 @@ table.compact td:not(:first-child), table.compact th:not(:first-child) { text-al
 
 /* ---------- Impression : la plaquette seule ---------- */
 @media print {
+  @page { size: A4 portrait; margin: 10mm; }
   body { background: #fff; }
   .site-header, .no-print, .view:not(#plaquette) { display: none !important; }
   #plaquette { display: block; padding: 0; }
   .leaflet { border: 0; max-width: none; margin: 0; }
   .leaflet footer { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .leaflet-gallery { display: block; }
+  .leaflet-gallery .leaflet { border: 0; border-radius: 0; break-inside: avoid; break-after: page; }
+  .leaflet-gallery .leaflet:last-child { break-after: auto; }
+  .leaflet-gallery img { width: auto; max-width: 100%; height: auto; max-height: 276mm; margin: 0 auto; }
 }

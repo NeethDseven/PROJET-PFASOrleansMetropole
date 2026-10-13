@@ -186,12 +186,25 @@
           <p class="lead">Le maintien de l’interconnexion est la référence actuelle. Si une réhabilitation est étudiée, charbon actif granulaire et résines spécifiques sont les deux technologies à tester en parallèle. Les membranes restent un recours, et le devenir des résidus se prévoit dès la conception.</p>
         </div>
 
+        <h2>Benchmark des solutions</h2>
+        <h3>Matrice de notation des technologies</h3>
+        <div data-table="benchmarkScores"></div>
+        <p>Les résines et le charbon actif se détachent grâce à leur rapport efficacité/coût, reléguant l’osmose inverse (énergivore) au rang de solution alternative.</p>
+        <p class="small-note">Classement de référence du Livrable 2. La matrice pondérée ci-dessous permet d’explorer la sensibilité de ces scores aux hypothèses de coût.</p>
+
         <h2>Technologies comparées</h2>
         <div data-table="benchTech"></div>
         <div class="note"><p>Retirer les PFAS de l’eau distribuée n’est pas les détruire : le charbon et les résines les piègent, les membranes les concentrent, et ELIXIR serait un traitement séparé d’effluents admis. La compatibilité des charbons et résines usés avec ELIXIR ne peut pas être présumée.</p></div>
 
         <h2>Membranes et ELIXIR</h2>
         <div data-table="benchMembranes"></div>
+
+        <h2>Références économiques et Cas d’usage</h2>
+        <div class="card">
+          <p><strong>Le précédent de Ternay (SUEZ) :</strong> Modernisation réussie de 6 filtres en filtres à charbon actif (Carbazur®) validée après 2 ans d’essais.</p>
+          <p><strong>Estimation des coûts (Réf. Saint-Louis) :</strong> Le traitement mobile au charbon actif est estimé entre 0,86 € et 1,92 € par m³ selon le débit. Pour Semoy, avec une hypothèse de 500 000 m³/an, un surcoût de 0,20 €/m³ représenterait déjà 100 000 €/an.</p>
+          <p class="small-note">Les références et leur périmètre sont détaillés ci-dessous. Le volume et le surcoût utilisés pour Semoy sont des hypothèses de calcul.</p>
+        </div>
 
         <h2>Référence industrielle : l’usine de Ternay (SUEZ)</h2>
         <div class="grid g2">
@@ -243,16 +256,25 @@
         <h2>Interconnexion ou réhabilitation&nbsp;?</h2>
         <div data-table="interVsRehab"></div>
 
-        <h2>SWOT : réhabiliter les Hautes Bordes</h2>
+        <h2>Analyse SWOT : Remise en service du captage</h2>
         <div class="swot">
-          <div class="s"><h3>Forces</h3><p>Technologies CAG et résines éprouvées, ressource locale récupérable, diversification de la production.</p></div>
-          <div class="w"><h3>Faiblesses</h3><p>Investissement et consommables, gestion des résidus PFAS, efficacité à démontrer, éventuel traitement du fer et du manganèse.</p></div>
-          <div class="o"><h3>Opportunités</h3><p>Résilience métropolitaine améliorée, compétences des partenaires valorisées, financement d’études et d’investissements, suivi optimisé.</p></div>
-          <div class="t"><h3>Menaces</h3><p>Durcissement des exigences, contamination persistante, saturation précoce, investissement non compétitif face à l’interconnexion.</p></div>
+          <div class="s"><h3>Forces</h3><p>Réutilisation d’une ressource locale, diversification.</p></div>
+          <div class="w"><h3>Faiblesses</h3><p>Coût d’installation, gestion complexe des déchets.</p></div>
+          <div class="o"><h3>Opportunités</h3><p>Amélioration de la sécurité d’approvisionnement.</p></div>
+          <div class="t"><h3>Menaces</h3><p>Évolution stricte des normes, investissement disproportionné face à l’interconnexion.</p></div>
         </div>
 
-        <h2>Partenaires : rôles proposés</h2>
-        <div data-table="partners"></div>
+        <h2>Rôle potentiel des partenaires</h2>
+        <div class="card">
+          <ul class="list">
+            <li><strong>SUEZ :</strong> Expertise sur les essais de traitement (charbon/résines).</li>
+            <li><strong>MS4ALL :</strong> Simulation moléculaire pour le choix des médias.</li>
+            <li><strong>Atos :</strong> Outils numériques de suivi et de cartographie.</li>
+            <li><strong>ArianeGroup / Aquarden :</strong> Destruction des concentrats via ELIXIR.</li>
+            <li><strong>Banque des Territoires :</strong> Accompagnement et financement.</li>
+          </ul>
+          <p class="small-note">Orléans Métropole pilote l’étude et arbitre le choix. Le recours à ELIXIR dépend de la compatibilité des concentrats et de la capacité de traitement validée.</p>
+        </div>
 
         <h2>Bonnes pratiques</h2>
         <div class="card">
@@ -376,21 +398,25 @@
         <div class="hero no-print">
           <p class="kicker">Livrable 4</p>
           <h1>Plaquette de promotion de l’eau du robinet</h1>
-          <p class="lead">Le contenu d’information est désormais sur la page dédiée aux habitants, accessible par le QR code. Proposition à valider par Orléans Métropole avant toute diffusion publique.</p>
-          <button type="button" class="button" id="printLeaflet">Imprimer</button>
+          <p class="lead">Deux versions de la plaquette « L’eau du robinet, une eau de confiance » : Orléans Métropole et Semoy. Cliquez sur un visuel pour le consulter en grand format.</p>
+          <button type="button" class="button" id="printLeaflet">Imprimer les plaquettes</button>
           <a class="button ghost" href="habitants.html">Voir la page habitants</a>
         </div>
 
-        <article class="leaflet">
-          <footer>
-            <p class="retain">Choisir l’eau du robinet, c’est privilégier une ressource de proximité, surveillée et facile à utiliser, dans le respect des consignes sanitaires locales.</p>
-            <p>Pour en savoir plus : orleans-metropole.fr · bulletins de qualité de l’eau publiés par l’ARS</p>
-            <div class="leaflet-qr">
-              <img src="assets/qr-habitants.png" alt="QR code vers la page d’information des habitants" />
-              <p><b>Scannez pour en savoir plus</b>Ce qu’il s’est passé à Semoy, comment l’eau est contrôlée et où en est l’étude.</p>
-            </div>
-          </footer>
-        </article>
+        <div class="leaflet-gallery">
+          <figure class="leaflet">
+            <a href="assets/plaquette-orleans.jpg" target="_blank" rel="noopener" aria-label="Ouvrir la plaquette Orléans Métropole en grand format">
+              <img src="assets/plaquette-orleans.jpg" width="1414" height="2000" alt="Plaquette Orléans Métropole : L’eau du robinet, une eau de confiance. Captage, prétraitements, charbons actifs, filtration complémentaire, contrôle et distribution. Une eau locale, contrôlée et pratique." />
+            </a>
+            <figcaption class="no-print">Orléans Métropole · <a href="assets/plaquette-orleans.jpg" download>Télécharger la plaquette</a></figcaption>
+          </figure>
+          <figure class="leaflet">
+            <a href="assets/plaquette-semoy.jpg" target="_blank" rel="noopener" aria-label="Ouvrir la plaquette Semoy en grand format">
+              <img src="assets/plaquette-semoy.jpg" width="1414" height="2000" alt="Plaquette Semoy : L’eau du robinet, une eau de confiance. Captage, prétraitements, charbons actifs, filtration membranaire, contrôle et distribution. Une eau locale, contrôlée et pratique." />
+            </a>
+            <figcaption class="no-print">Semoy · <a href="assets/plaquette-semoy.jpg" download>Télécharger la plaquette</a></figcaption>
+          </figure>
+        </div>
       </section>
 
       <!-- ================= SOURCES ================= -->

@@ -39,6 +39,15 @@ const TABLES = {
       ['Coût complet', 'Comparaison avec le maintien de l’interconnexion'],
     ],
   },
+  benchmarkScores: {
+    head: ['Technologie', 'Score / 100'],
+    rows: [
+      ['<strong>Résines spécifiques PFAS</strong>', '74'],
+      ['<strong>Charbon actif granulaire (CAG)</strong>', '71'],
+      ['Osmose inverse', '66'],
+      ['CAG + Résines', '60'],
+    ],
+  },
   benchTech: {
     head: ['Solution', 'Efficacité et intérêt', 'Limites et déchets', 'Rôle pour Semoy'],
     rows: [
