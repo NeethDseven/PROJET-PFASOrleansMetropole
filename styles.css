@@ -229,6 +229,9 @@ table.compact td:not(:first-child), table.compact th:not(:first-child) { text-al
 .resident .card.mini p { font-size: 15px; }
 .resident .infographic { margin-top: 20px; }
 .resident-leaflets { margin-top: 28px; }
+.resident-leaflets .segmented { display: flex; width: fit-content; gap: 8px; }
+.resident-qr { display: block; width: min(360px, 100%); margin: 24px auto; }
+.resident-qr img { display: block; width: 100%; height: auto; }
 .resident-leaflets .leaflet { background: #fff; }
 .resident-leaflets .leaflet img { display: block; width: 100%; height: auto; }
 .resident-leaflets figcaption { padding: 12px 16px; text-align: center; }
