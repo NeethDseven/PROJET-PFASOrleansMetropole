@@ -1,4 +1,4 @@
-// Contenu tiré du dossier consolidé des 4 livrables (12 octobre 2026).
+// Dossier consolidé complété par les données de fond du PDF final (13 octobre 2026).
 
 const TABLES = {
   mediaCompare: {
@@ -37,6 +37,35 @@ const TABLES = {
       ['Suivi des médias', 'Remplacement avant percée non maîtrisée'],
       ['Déchets', 'Traçabilité complète'],
       ['Coût complet', 'Comparaison avec le maintien de l’interconnexion'],
+    ],
+  },
+  decisionScenarios: {
+    head: ['Scénario', 'Principe et avantages', 'Limites', 'Position proposée'],
+    rows: [
+      ['A · Interconnexion avec Orléans', 'Alimentation déjà opérationnelle, continuité de service, sans nouveau traitement PFAS local immédiat.', 'Dépendance aux autres captages ; coûts de pompage et d’entretien à établir.', 'Référence technique et économique actuelle.'],
+      ['B · Charbon actif granulaire', 'Adsorption ; technologie éprouvée, retour d’expérience de Ternay.', 'Rétention variable des PFAS courts ; saturation, remplacement du charbon et déchets contaminés.', 'Essais pilotes comparatifs sur l’eau de Semoy.'],
+      ['C · Résines spécifiques PFAS', 'Adsorption ; intérêt potentiel pour certains PFAS courts, équipements compacts.', 'Performance selon le média ; prix, saturation et gestion des déchets à préciser.', 'À tester en priorité, en comparaison avec le CAG.'],
+    ],
+  },
+  waterNeeds: {
+    head: ['Paramètre', 'Valeur retenue dans le dossier final', 'Nature de la donnée'],
+    rows: [
+      ['Population de Semoy en 2023', '3 269 habitants', 'Donnée de départ reprise du dossier'],
+      ['Consommation moyenne', '143 L/habitant/jour', 'Hypothèse de consommation'],
+      ['Consommation estimée', 'Environ 467 m³/j · 171 000 m³/an', 'Calcul arrondi'],
+      ['Pertes réseau', '15 %', 'Hypothèse de travail'],
+      ['Production nécessaire', 'Environ 550 m³/j · <strong>200 000 m³/an</strong>', 'Estimation arrondie, pas une mesure du captage'],
+      ['Durée de fonctionnement', '16 heures/jour', 'Hypothèse d’exploitation'],
+      ['Débit théorique', '<strong>35 m³/h</strong>', 'Calcul arrondi, à confronter au débit exploitable'],
+    ],
+  },
+  opexSensitivity: {
+    head: ['Exploitation supposée', 'Exploitation annuelle', 'Coût annuel partiel', 'Coût partiel par m³'],
+    rows: [
+      ['0,05 €/m³', '10 000 €/an', '77 216 €/an', '0,386 €/m³'],
+      ['0,10 €/m³', '20 000 €/an', '87 216 €/an', '0,436 €/m³'],
+      ['0,20 €/m³', '40 000 €/an', '107 216 €/an', '0,536 €/m³'],
+      ['0,30 €/m³', '60 000 €/an', '127 216 €/an', '0,636 €/m³'],
     ],
   },
   benchmarkScores: {
@@ -110,12 +139,12 @@ const TABLES = {
     ],
   },
   capexSteps: {
-    head: ['CAPEX hypothétique', 'Annuité 20 ans / 3 %', '€/m³ à 100 000 m³/an', '€/m³ à 500 000 m³/an'],
+    head: ['CAPEX hypothétique', 'Annuité 20 ans / 3 %', 'Investissement par m³ à 200 000 m³/an'],
     rows: [
-      ['250 000 €', '16 804 €/an', '0,168', '0,034'],
-      ['500 000 €', '33 608 €/an', '0,336', '0,067'],
-      ['1 000 000 €', '67 216 €/an', '0,672', '0,134'],
-      ['2 000 000 €', '134 431 €/an', '1,344', '0,269'],
+      ['250 000 €', '16 804 €/an', '0,084 €/m³'],
+      ['500 000 €', '33 608 €/an', '0,168 €/m³'],
+      ['1 000 000 €', '67 216 €/an', '0,336 €/m³'],
+      ['2 000 000 €', '134 431 €/an', '0,672 €/m³'],
     ],
   },
   prices: {
@@ -133,10 +162,10 @@ const TABLES = {
     ],
   },
   missingData: {
-    head: ['Donnée requise', 'Situation au 12/10/2026', 'Source à demander'],
+    head: ['Donnée requise', 'Situation dans le dossier final', 'Source à demander'],
     rows: [
-      ['Volume que Semoy utiliserait en situation normale', '<span class="tag warn">Non établi</span>', 'Bilan hydraulique de la régie ; volumes produits 2022–2023'],
-      ['Débit nominal et heures de fonctionnement', '<span class="tag warn">Non établi</span>', 'Données d’exploitation des Hautes Bordes'],
+      ['Volume que Semoy utiliserait en situation normale', '200 000 m³/an estimés, à confirmer', 'Bilan hydraulique de la régie ; volumes produits 2022–2023'],
+      ['Débit nominal et heures de fonctionnement', 'Hypothèses : 35 m³/h et 16 h/j ; capacité réelle non établie', 'Données d’exploitation des Hautes Bordes'],
       ['Coût marginal réel de l’interconnexion', '<span class="tag warn">Non communiqué</span>', 'Pompage, énergie, maintenance, coûts de réseau'],
       ['Réemploi de la déferrisation-démanganisation', '<span class="tag go">Existence et travaux 2022 établis</span>', 'Audit d’état et compatibilité hydraulique'],
       ['CAG et résines : durée de saturation et OPEX', '<span class="tag warn">À mesurer sur l’eau du site</span>', 'Pilotes et devis opposables'],
@@ -186,11 +215,12 @@ const TABLES = {
   deployment: {
     head: ['Étape', 'Livrable financier attendu', 'Condition de passage'],
     rows: [
-      ['1 · Diagnostic (0–6 mois, indicatif)', 'Volumes, coûts réels de l’interconnexion, qualité de l’eau brute, capacité du prétraitement', 'Données locales certifiées'],
+      ['1 · Analyses actualisées', 'PFAS individuels, fer, manganèse et autres paramètres utiles', 'Qualité actuelle du captage caractérisée'],
       ['2 · Pilotes CAG et résines', 'Courbes de percée, prix des médias, élimination des déchets', 'Objectifs de qualité démontrés'],
-      ['3 · Consultation du marché', 'CAPEX HT, OPEX garantis, maintenance, renouvellements, gestion des résidus', 'Offres comparables sur 20 ans'],
-      ['4 · Décision politique', 'Valeur actualisée, €/m³, impact tarifaire, risques, scénario sans investissement', 'Vote et financement confirmé'],
-      ['5 · Mise en œuvre et suivi', 'Indicateurs réels : €/m³, PFAS, disponibilité', 'Autorisations sanitaires et réception'],
+      ['3 · Réemploi des installations', 'Audit de la station de déferrisation-démanganisation rénovée en 2022', 'État et compatibilité hydraulique validés'],
+      ['4 · Devis précis', 'Équipements, installation, énergie, maintenance, renouvellement des médias et déchets PFAS', 'Offres de périmètre comparable'],
+      ['5 · Comparaison sur 20 ans', 'Coût complet du CAG, des résines et de l’interconnexion ; risques et sécurité d’approvisionnement', 'Comparaison documentée sur une base commune'],
+      ['6 · Décision et suivi', 'Choix argumenté, financement, conformité et traçabilité des déchets', 'Intérêt technique, économique et environnemental démontré ; autorisations sanitaires'],
     ],
   },
 };
@@ -237,6 +267,12 @@ const MATRIX = {
 };
 
 const SOURCES = [
+  {
+    group: 'Dossier final de l’équipe',
+    items: [
+      ['D1', 'LIVRABLE.pdf fourni le 13 octobre 2026 : estimation des besoins (200 000 m³/an, 35 m³/h), scénarios techniques, simulation sur 20 ans à 3 % et ouverture intercommunale.', ''],
+    ],
+  },
   {
     group: 'Orléans Métropole',
     items: [
